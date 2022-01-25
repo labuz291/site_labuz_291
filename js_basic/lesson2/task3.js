@@ -18,7 +18,7 @@ for (;;) {
   } else {
     playerOneAnswer = +playerOneAnswer;
     playerTwoAnswer = +playerTwoAnswer;
-    if (playerOneAnswer === answer && playerTwoAnswer === answer) {
+  if (playerOneAnswer === answer && playerTwoAnswer === answer) {
     alert("Оба игрока угадали! Ничья.");
   } else if (playerOneAnswer === answer && playerTwoAnswer !== answer) {
     alert("Первый игрок победил!");
@@ -30,4 +30,4 @@ for (;;) {
     playerOneAnswer = prompt("Первый игрок, ваш ответ:");
     playerTwoAnswer = prompt("Второй игрок, ваш ответ:");
   }
-  }
+}

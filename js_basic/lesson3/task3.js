@@ -12,21 +12,21 @@ function makeForRiddles(riddlesAndAnswers) {
     let riddle = riddlesAndAnswers[i];
     let userAnswer = prompt(`Отгадайте загадку: ${riddlesAndAnswers[i][0]}`).toLowerCase();
 
-    if (userAnswer === riddlesAndAnswers[i][1]) {
+    if (userAnswer === riddlesAndAnswers[i][1] || userAnswer === riddlesAndAnswers[i][2]) {
       alert("Правильно!");
       rightAnswerCount++;
     } else {
-      alert(`Неправильно. Правильный ответ "${riddlesAndAnswers[i][1]}".`);
+      alert(`Неправильно. Правильный ответ - ${riddlesAndAnswers[i][1]} (${riddlesAndAnswers[i][2]}).`);
     }
   }
   return rightAnswerCount;
 }
 
 let riddles = [
-  ["в поле лестница лежит, дом по лестнице бежит", "поезд"],
+  ["в поле лестница лежит, дом по лестнице бежит", "поезд", "паровоз"],
   ["пыль увижу — заворчу, заверчу и проглочу", "пылесос"],
-  ["к нам приехали с бахчи полосатые мячи", "арбуз"],
-  ["cтоял на крепкой ножке, теперь лежит в лукошке", "гриб"]
+  ["к нам приехали с бахчи полосатые мячи", "арбуз", "арбузы"],
+  ["cтоял на крепкой ножке, теперь лежит в лукошке", "гриб", "грибы"]
 ];
 
 makeForRiddles(riddles);

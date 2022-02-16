@@ -4,24 +4,24 @@ a. Написать функцию, которая принимает в кач�
 Результатом работы функции является массив из N элементов со значениями 1, 2, 3… n.
 */
 
-let numEtering = +prompt(`Введите число`)
+const NUM_ENTERING = +prompt(`Введите число`)
 
 function numericalSequence(n) {
   let arr = [];
-  for (var i = 1; i <= n; i++) {
+  for (let i = 1; i <= n; i++) {
     arr.push(i);
   }
   return arr;
 }
 
-let sequenceResult = numericalSequence(numEtering);
+let sequenceResult = numericalSequence(NUM_ENTERING);
 
 /*
 b. Написать функцию, которая принимает массив чисел.
 Результатом работы функции является сумма чисел этого массива.
 */
 
-let numArr = [14, 208, 17, 7, 44, 55, 144];
+const NUM_ARR = [14, 208, 17, 7, 44, 55, 144];
 
 function sumOfArrNum(numArr) {
   let sum = 0;
@@ -31,7 +31,7 @@ function sumOfArrNum(numArr) {
   return sum;
 }
 
-let sumResult = sumOfArrNum(numArr);
+let sumResult = sumOfArrNum(NUM_ARR);
 
 /*
 c. Написать функцию, которая на вход получает массив целых чисел,
@@ -42,7 +42,7 @@ c. Написать функцию, которая на вход получае�
 
 function maxNumOfArr(numArr) {
   let max = [0];
-  for (let i = 0; i < numArr.length; i++) {
+  for (let i = 1; i < numArr.length; i++) {
     if (numArr[i] > max) {
       max = numArr[i];
     }
@@ -50,7 +50,7 @@ function maxNumOfArr(numArr) {
   return max;
 }
 
-let maxNumResult = maxNumOfArr(numArr);
+let maxNumResult = maxNumOfArr(NUM_ARR);
 
 /*
 Вариант 2:
@@ -60,7 +60,7 @@ function maxNumOfArrByMath(numArr) {
   return Math.max(...numArr);
 }
 
-let maxNumResultByMath = maxNumOfArrByMath(numArr);
+let maxNumResultByMath = maxNumOfArrByMath(NUM_ARR);
 
 /*
 d. Написать функцию, которая на вход получает массив целых чисел,
@@ -71,7 +71,7 @@ d. Написать функцию, которая на вход получае�
 
 function minNumOfArr(numArr) {
   let min = numArr[0];
-  for (let i = 0; i < numArr.length; i++) {
+  for (let i = 1; i < numArr.length; i++) {
     if (numArr[i] < min) {
       min = numArr[i];
     }
@@ -79,7 +79,7 @@ function minNumOfArr(numArr) {
   return min;
 }
 
-let minNumResult = minNumOfArr(numArr);
+let minNumResult = minNumOfArr(NUM_ARR);
 
 /*
 Вариант 2:
@@ -89,7 +89,7 @@ function minNumOfArrByMath(numArr) {
   return Math.min(...numArr);
 }
 
-let minNumResultByMath = minNumOfArrByMath(numArr);
+let minNumResultByMath = minNumOfArrByMath(NUM_ARR);
 
 /*
 f. Написать функцию, которая на вход получает массив целых чисел,
@@ -99,21 +99,21 @@ f. Написать функцию, которая на вход получае�
 */
 
 function findEvenNumbers(numArr) {
-  let evenNumbersArr = [];
+  const EVEN_NUMBERS_ARR = [];
   for (let i = 0; i < numArr.length; i++) {
     if (numArr[i] % 2 === 0) {
-      evenNumbersArr.push(numArr[i]);
+      EVEN_NUMBERS_ARR.push(numArr[i]);
     }
   }
-  return evenNumbersArr;
+  return EVEN_NUMBERS_ARR;
 }
 
-let evenNumbersResult = findEvenNumbers(numArr);
+let evenNumbersResult = findEvenNumbers(NUM_ARR);
 
-console.log(`Числовая последовательность из ${numEtering} чисел: ${sequenceResult}`);
-console.log(`Сумма чисел массива ${numArr} составляет: ${sumResult}`);
-console.log(`Максимальным числом в массиве ${numArr} является: ${maxNumResult}`);
+console.log(`Числовая последовательность из ${NUM_ENTERING} чисел: ${sequenceResult}`);
+console.log(`Сумма чисел массива ${NUM_ARR} составляет: ${sumResult}`);
+console.log(`Максимальным числом в массиве ${NUM_ARR} является: ${maxNumResult}`);
 console.log(`Максимальное число с помощью Math.max: ${maxNumResultByMath}`);
-console.log(`Минимальным числом в массиве ${numArr} является: ${minNumResult}`);
+console.log(`Минимальным числом в массиве ${NUM_ARR} является: ${minNumResult}`);
 console.log(`Минимальное число с помощью Math.min: ${minNumResultByMath}`);
-console.log(`Чётные числа из массива ${numArr} следующие: ${evenNumbersResult}`);
+console.log(`Чётные числа из массива ${NUM_ARR} следующие: ${evenNumbersResult}`);

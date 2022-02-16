@@ -11,24 +11,32 @@ function makeForRiddles(riddlesAndAnswers) {
   for (let i = 0; i < riddlesAndAnswers.length; i++) {
     let riddle = riddlesAndAnswers[i];
     let userAnswer = prompt(`Отгадайте загадку: ${riddlesAndAnswers[i][0]}`).toLowerCase();
-
-    if (userAnswer === riddlesAndAnswers[i][1] || userAnswer === riddlesAndAnswers[i][2]) {
-      alert("Правильно!");
-      rightAnswerCount++;
+    if (riddlesAndAnswers[i].length > 2) {
+      if (userAnswer === riddlesAndAnswers[i][1] || userAnswer === riddlesAndAnswers[i][2]) {
+        alert("Правильно!");
+        rightAnswerCount++;
+      } else {
+        alert(`Неправильно. Правильный ответ - ${riddlesAndAnswers[i][1]} (${riddlesAndAnswers[i][2]}).`);
+      }
     } else {
-      alert(`Неправильно. Правильный ответ - ${riddlesAndAnswers[i][1]} (${riddlesAndAnswers[i][2]}).`);
+      if (userAnswer === riddlesAndAnswers[i][1]) {
+        alert("Правильно!");
+        rightAnswerCount++;
+      } else {
+        alert(`Неправильно. Правильный ответ - ${riddlesAndAnswers[i][1]}.`);
+      }
     }
   }
   return rightAnswerCount;
 }
 
-let riddles = [
+const RIDDLES = [
   ["в поле лестница лежит, дом по лестнице бежит", "поезд", "паровоз"],
   ["пыль увижу — заворчу, заверчу и проглочу", "пылесос"],
   ["к нам приехали с бахчи полосатые мячи", "арбуз", "арбузы"],
   ["cтоял на крепкой ножке, теперь лежит в лукошке", "гриб", "грибы"]
 ];
 
-makeForRiddles(riddles);
+makeForRiddles(RIDDLES);
 alert(`Количество правильных ответов: ${rightAnswerCount}.`);
 alert("Игра окончена.");

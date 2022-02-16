@@ -27,7 +27,7 @@ function getRandomNumber(max) {
   return Math.round(Math.random() * max);
 }
 
-let instructionArr = [
+const INSTRUCTION_ARR = [
   `Положите 4 пальца левой руки - мезинец, безымянный, средний и указательный - на клавиши ф, ы, в, а.
   Запомните, что А нахрдится под Вашим указательным пальцем, а Ф - под мизинцем.\n
   Теперь неспеша набирайте текст. Постарайтесь не смотреть на клавиатуру.`,
@@ -46,7 +46,7 @@ let instructionArr = [
   безымянный палец — на Д, средний — на Л, указательный — на О. Запомните расположение пальцев.`
 ];
 
-let letterVariants = [
+const LETTERS_VARIANTS = [
   ["ф", "а"],
   ["ы", "в"],
   ["о", "ж"],
@@ -55,16 +55,40 @@ let letterVariants = [
 
 alert(`Вас приветствует программа по обучению слепой печати.`);
 
+let rightAnswerCount = 0;
+let arrLength = INSTRUCTION_ARR.length;
 
-for (let i = 0; i < instructionArr.length; i++) {
-  alert(instructionArr[i]);
-  text = generateText(letterVariants[i], 10);
+for (let i = 0; i < INSTRUCTION_ARR.length; i++) {
+  alert(INSTRUCTION_ARR[i]);
+  text = generateText(LETTERS_VARIANTS[i], 10);
   userText = prompt(text);
   if (userText === text) {
     alert("Всё верно!");
+    rightAnswerCount++;
+  } else if (userText === null) {
+    alert("Жаль, что вы уходите.");
+    break;
   } else {
+    do {
+      if (userText === null) {
+        alert("Жаль, что вы уходите.");
+        break;
+      }
       alert("Вы ошиблись. Попробуйте ещё раз.");
-  }
+      alert(INSTRUCTION_ARR[i]);
+      text = generateText(LETTERS_VARIANTS[i], 10);
+      userText = prompt(text);
+      if (userText === null) {
+        alert("Жаль, что вы уходите.");
+        break;
+      }
+    } while (userText !== text);
+    }
+    if (rightAnswerCount === arrLength && userText !== null) {
+      alert("Поздравляем! Ваши навыки печати улучшились.");
+    } else if (rightAnswerCount < arrLength && userText !== null) {
+      alert("Вы переходите на следующий уровень!");
+    } else if (userText === null) {
+      break;
+    }
 }
-
-alert("Поздравляем!");

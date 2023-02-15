@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="css/hover.css">
+    <link rel="stylesheet" href="css/calcstyles.css">
+  </head>
+  <body background="img/background_for_calc.jpg">
+    <form name="calc" id="mycalc" method="get" action="#">
+    	<table class="calculator">
+    		<caption>Calc  v.1</caption>
+        <tr>
+    			<td colspan="5">
+            <input id="extra_field" type="text" class="extra_window">
+          </td>
+    		</tr>
+    		<tr>
+    			<td colspan="5">
+            <input name="result" id="field" type="text" class="window">
+          </td>
+    		</tr>
+    		<tr>
+    			<td>
+            <button name="one" id="btn_1" value="1" type="button" class="numbers">1</button>
+          </td>
+    			<td>
+            <button name="two" id="btn_2" value="2" type="button" class="numbers">2</button>
+          </td>
+    			<td>
+            <button name="three" id="btn_3" value="3" type="button" class="numbers">3</button>
+          </td>
+    			<td>
+            <button name="clean_1" id="btn_C" type="button" class="cl">C</button>
+          </td>
+    			<td>
+            <button name="clean_2" id="btn_CE" type="button" class="ce">CE</button>
+          </td>
+    		</tr>
+    		<tr>
+    			<td>
+            <button name="four" id="btn_4" value="4" type="button" class="numbers">4</button>
+          </td>
+    			<td>
+            <button name="five" id="btn_5" value="5" type="button" class="numbers">5</button>
+          </td>
+    			<td>
+            <button name="six" id="btn_6" value="6" type="button" class="numbers">6</button>
+          </td>
+    			<td>
+            <button name="plus" id="btn_+" value="+" type="button" class="operation">+</button>
+          </td>
+    			<td>
+            <button name="minus" id="btn_-" value="-" type="button" class="operation">-</button>
+          </td>
+    		</tr>
+    		<tr>
+    			<td>
+            <button name="seven" id="btn_7" value="7" type="button" class="numbers">7</button>
+          </td>
+    			<td>
+            <button name="eight" id="btn_8" value="8" type="button" class="numbers">8</button>
+          </td>
+    			<td>
+            <button name="nine" id="btn_9" value="9" type="button" class="numbers">9</button>
+          </td>
+    			<td>
+            <button name="multiply" id="btn_*" value="*" type="button" class="operation">*</button>
+          </td>
+    			<td>
+            <button name="divide" id="btn_/" value="/" type="button" class="operation">/</button>
+          </td>
+    		</tr>
+    		<tr>
+    			<td>
+            <button name="zero" id="btn_0" value="0" type="button" class="numbers">0</button>
+          </td>
+    			<td colspan="2">
+            <button name="equally" id="btn_=" value="=" type="button" class="eq" style="width: 100%;">=</button>
+          </td>
+    			<td>
+            <button name="spot" id="point" value="." type="button" class="point">.</button>
+          </td>
+    			<td>
+            <!-- кнопка для анимации -->
+            <button name="serpmolot" id="btn_serpmolot" value="serpmolot" type="button" class="serpmolot"><img src="img/serpmolot.ico" alt="Go"></button>
+          </td>
+    		</tr>
+
+    	</table>
+      <div class="result_log">
+        <!-- журнал для сохранения результатов вычислений -->
+      </div>
+    </form>
+    <script src="js/script_for_calc.js">
+    </script>
+  </body>
+</html>

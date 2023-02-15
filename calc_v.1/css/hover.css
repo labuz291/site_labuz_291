@@ -1,0 +1,20 @@
+.numbers:hover {
+  background-color: #FFFFFF;
+  color: #6495ED;
+  border-color: #6495ED;
+}
+
+.operation:hover,
+.point:hover,
+.cl:hover,
+.ce:hover {
+  background-color: #6495ED;
+  color: #FFFFFF;
+  border-color: #000000;
+}
+
+.eq:hover {
+  background-color: #E6E6FA;
+  color: #FF8C00;
+  border-color: #FF8C00;
+}

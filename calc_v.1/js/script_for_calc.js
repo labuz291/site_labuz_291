@@ -9,6 +9,14 @@ let operand_2 = null;
 let equally = document.querySelector('.eq');
 let result = null;
 
+let isLastClickOperator = false;
+const OPERATORS = {
+  "+": onPlus,
+  "-": onMinus,
+  "*": onMultiply,
+  "/": onDivide,
+};
+
 //очищаем дисплей при загрузке страницы
 window.onload = function() {
   display.value = "";
@@ -17,6 +25,58 @@ window.onload = function() {
 
 //отображение нажатой цифры на дисплее
 function addNumber(number) {
+  if (display.value === "" || isLastClickOperator) {
+    if (number === 0) {
+      return;
+    }
+    display.value = number;
+    miniDisplay.value += number;
+  } else  {
+    display.value += number;
+    miniDisplay.value += number;
+  }
+
+  if (!operator) {
+    operand_1 = +display.value;
+  } else {
+    operand_2 = +display.value;
+  }
+  isLastClickOperator = false;
+}
+
+function addOperator(value) {
+  operator = value;
+  if (isLastClickOperator) {
+    miniDisplay.value = miniDisplay.value.slice(0, -1)
+  }
+  miniDisplay.value += operator;
+  isLastClickOperator = true;
+}
+
+function onPlus(arg1, arg2) {
+  return arg1 + arg2;
+}
+function onMinus(arg1, arg2) {
+  return arg1 - arg2;
+}
+function onMultiply(arg1, arg2) {
+  return arg1 * arg2;
+}
+function onDivide(arg1, arg2) {
+  return arg1 / arg2;
+}
+
+function onEqually() {
+  if (operand_1 && operand_2 && operator) {
+    const EQUALLY = OPERATORS[operator](operand_1, operand_2);
+    display.value = EQUALLY;
+    operand_1 = EQUALLY;
+    operand_2 = null;
+    operator = null;
+  }
+}
+
+function addNumber1(number) {
   for (let num of numBtns) {
     num.onclick = function addNum() {
       if (display.value === "") {
@@ -32,7 +92,7 @@ function addNumber(number) {
 }
 
 //нажатие оператора
-function addOperator(operators) {
+function addOperator1(operators) {
   for (let oper of operBtns) {
       oper.onclick = function addOp() {
         if (display.value !== "") {
@@ -47,8 +107,8 @@ function addOperator(operators) {
     }
 }
 
-addNumber(numBtns);
-addOperator(operBtns);
+// addNumber(numBtns);
+// addOperator(operBtns);
 
 //кнопка сброса
 btn_C.onclick = function clear() {
@@ -68,33 +128,33 @@ btn_C.onclick = function clear() {
 }
 
 // равно
-equally.onclick = function equally() {
-  if (operator !== null && operand_1 !== null) {
-    switch (operator) {
-          case '+':
-            result = operand_1 + operand_1;
-            display.value = result;
-            miniDisplay.value = result;
-            break;
-          case '-':
-            result = operand_1 - operand_1;
-            display.value = result;
-            miniDisplay.value = result;
-            break;
-          case '*':
-            result = operand_1 * operand_1;
-            display.value = result;
-            miniDisplay.value = result;
-            break;
-          case '/':
-            result = operand_1 / operand_1;
-            display.value = result;
-            miniDisplay.value = result;
-            break;
-        }
-  } else {
-    display.value = 'ERROR';
-  }
-  operand_1 = result;
-}
+// equally.onclick = function equally() {
+//   if (operator !== null && operand_1 !== null) {
+//     switch (operator) {
+//           case '+':
+//             result = operand_1 + operand_1;
+//             display.value = result;
+//             miniDisplay.value = result;
+//             break;
+//           case '-':
+//             result = operand_1 - operand_1;
+//             display.value = result;
+//             miniDisplay.value = result;
+//             break;
+//           case '*':
+//             result = operand_1 * operand_1;
+//             display.value = result;
+//             miniDisplay.value = result;
+//             break;
+//           case '/':
+//             result = operand_1 / operand_1;
+//             display.value = result;
+//             miniDisplay.value = result;
+//             break;
+//         }
+//   } else {
+//     display.value = 'ERROR';
+//   }
+//   operand_1 = result;
+// }
 // document.getElementById('field').innerHTML = result;

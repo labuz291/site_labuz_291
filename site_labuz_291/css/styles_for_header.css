@@ -1,0 +1,84 @@
+header .navigation {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-image: url("../img/background-01.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.96;
+    border-radius: 4px;
+    box-shadow: 2px 4px 35px 2px rgba(0, 0, 0, 0.2),
+                -7px -7px 14px rgba(200,200,200,0.2),
+                7px 7px 14px rgba(200,200,200,0.2);
+    text-align: center;
+    width: 99.9%;
+    height: auto;
+}
+
+header .navigation .main_navigation {
+    display: flex;
+    height: auto;
+    border: 0px solid #000;
+    border-radius: 4px;
+    box-shadow: 1px 2px 20px 1px rgba(0, 0, 0, 0.1),
+                -5px -5px 10px rgba(200, 180, 150, 0.1),
+                5px 5px 10px rgba(200, 180, 150, 0.1),
+                inset 5px 10px 20px 5px rgba(201, 178, 78, 0.1),
+                inset -7px -7px 12px rgba(200, 180, 150, 0.1),
+                inset 5px 5px 12px rgba(200, 180, 150, 0.1);
+}
+
+header .navigation .main_navigation div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+}
+
+header .navigation .main_navigation .main_menu button {
+    border-radius: 5px;
+    border: 0px solid #000;
+    background: rgba(240, 229, 196, 0);
+}
+
+/* здесь будет гамбургер и выпадающий список */
+header .navigation .main_navigation .main_menu img {
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    transition: 0.35s;
+    background-repeat: no-repeat;
+}
+
+header .navigation .main_navigation .main_menu img:hover {
+    transform: scaleX(1.5);
+}
+
+header .navigation .main_navigation a {
+    color: #141413;
+    font-family: "Helvetica Neue Cyr", sans-serif;
+    font-size: 24px;
+    text-shadow: #6A5ACD 2px 0 35px;
+    transition: 0.15s;
+}
+
+header .navigation .main_navigation a:link {
+    text-decoration: none;
+}
+
+header .navigation .main_navigation a:hover {
+    color: #6A5ACD;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: bisque;
+    text-shadow: #F4A460 1px 0 25px;
+    transform: scaleY(1.05);
+    transform: scaleX(0.9);
+}

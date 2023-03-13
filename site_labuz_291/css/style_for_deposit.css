@@ -1,0 +1,87 @@
+.deposit_box .info_message {
+    font-size: 30px;
+    font-family: "Comic Sans MS", sans-serif;
+    color: 	#F4A460;
+    text-align: center;
+    text-shadow: #F4A460 2px 0 45px;
+}
+
+.deposit_box .user_answer {
+    display: grid;
+    border: 3px solid #5243af;
+    border-radius: 10px;
+    width: 360px;
+    height: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2.4em;
+    color: #5243af;
+    font-family: "Verdana", sans-serif;
+    background: url("../icons/accessoriestexteditor.svg") no-repeat center right;
+    box-shadow: 1px 2px 20px 1px rgba(0, 0, 0, 0.5),
+                -5px -5px 10px rgba(70,70,70,0.12),
+                5px 5px 10px rgba(255,255,255,0.5);
+    transition: 0.2s;
+    background-color: rgba(250, 235, 215, 0.7);
+}
+
+.deposit_box .user_answer:hover {
+    border: 3px solid #F4A460;
+    cursor: text;
+}
+
+.deposit_box .answerButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b3938;
+  background-color: #FFE4E1;
+  font-family: "Jazz LET", sans-serif;
+  width: 220px;
+  height: 65px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  box-shadow: 1px 2px 20px 1px rgba(0, 0, 0, 0.1),
+              -5px -5px 10px rgba(70,70,70,0.1),
+              5px 5px 10px rgba(255,255,255,0.1),
+              inset 1px 2px 20px 1px rgba(0, 0, 0, 0.1),
+              inset -5px -5px 10px rgba(70,70,70,0.1),
+              inset 5px 5px 10px rgba(255,255,255,0.1);
+  font-size: 30px;
+  border: 3px solid #3b3938;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-shadow: #DEB887 3px 0 45px;
+}
+
+.deposit_box .answerButton:hover {
+  color: 	#f2ac6f;
+  background-color: 	#808080;
+  box-shadow: 1px 2px 20px 1px rgba(0, 0, 0, 0.5),
+              -5px -5px 10px rgba(70,70,70,0.12),
+              inset 1px 2px 20px 1px rgba(0, 0, 0, 0.5),
+              inset -5px -5px 10px rgba(70,70,70,0.12);
+  border: 3px solid #f2ac6f;
+  cursor: url(../icons/cursor_regular_icon.png), pointer;
+}
+
+input, textarea {
+  outline: none;
+}
+
+input:active, textarea:active {
+  outline: none;
+}
+:focus {
+  outline: none;
+}
+textarea {
+  resize: none;
+}
+textarea {
+  resize: vertical;
+}
+textarea {
+  resize: horizontal;
+}

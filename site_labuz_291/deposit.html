@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Сайт labuz_291</title>
+        <link rel="stylesheet" href="css/style_for_deposit.css">
+        <link rel="stylesheet" href="css/styles_for_header.css">
+        <link rel="stylesheet" href="css/styles_for_footer.css">
+        <link rel="stylesheet" href="css/common_styles.css">
+    </head>
+    <body class="deposit_body" background="img/1661351999.jpg">
+        <header>
+            <div class="navigation">
+                <nav class="main_navigation">
+                    <div class="main_menu">
+                        <button>
+                            <img src="img/wing.png" alt="avatar-button">
+                        </button>
+                    </div>
+                    <div class="main_link">
+                        <a href="index.html">Главная</a>
+                    </div>
+                    <div class="riddles_link">
+                        <a href="riddles.html">Загадки</a>
+                    </div>
+                    <div class="guess_link">
+                        <a href="guessing_game.html">Угадайка</a>
+                    </div>
+                    <div class="printing_link">
+                        <a href="blindly_printing.html">Печаталка</a>
+                    </div>
+                    <div class="calc_link">
+                        <a href="calculator.html">Калькулятор</a>
+                    </div>
+                    <div class="deposit_link">
+                        <a href="#">Вклад</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div class="header_spacer">
+            </div>
+          <h1>
+              Программа для расчёта банковского вклада
+          </h1>
+          <div class="deposit_box">
+              <p class="info_message">
+                  Введите сумму вклада в рублях
+              </p>
+              <input type="text" class="user_answer" id="rublesSum" placeholder="100.000">
+              <p class="info_message">
+                  Сколько процентов годовых?
+              </p>
+              <input type="text" class="user_answer" id="depositPercent" placeholder="5">
+              <p class="info_message">
+                  На сколько лет вклад?
+              </p>
+              <input type="text" class="user_answer" id="period" placeholder="3">
+              <button type="button" class="answerButton" onclick="calculateDeposit()">
+                    РАССЧИТАТЬ
+              </button>
+              <div class="message">
+                  <p id="resultMessage">
+
+                  </p>
+              </div>
+          </div>
+        </main>
+        <footer>
+            <div class="logo">
+                <img src="img/symbol_lightbulb.png" alt="Логотип">
+            </div>
+            <div class="copyright">
+                <p class="labuz_291">
+                    Copyright &copy; labuz_291
+                </p>
+            </div>
+            <div class="contacts_link">
+                <a href="https://t.me/labuz_291" target="_ blank">
+                    <img src="icons/telegram.svg" alt="Ссылка на профиль в telegram">
+                </a>
+            </div>
+            <div class="contacts_link">
+                <a href="https://wa.me/79287565016?text=Привет!%20Сколько%20стоит%20такой%20сайт?" target="_ blank">
+                    <img src="icons/whatsapp.svg" alt="Ссылка на профиль в whatsapp">
+                </a>
+            </div>
+            <div class="contacts_link">
+                <a href="https://github.com/labuz291"  target="_ blank">
+                    <img src="icons/github.svg" alt="Ссылка на профиль в github">
+                </a>
+            </div>
+            <div class="contacts_link">
+                <a href="https://discord.com/channels/@me/labuz_291#1904"  target="_ blank">
+                    <img src="icons/discord.svg" alt="Whatsapp link">
+                </a>
+            </div>
+            <div class="contacts_link">
+                <a href="https://vk.com/labuz_291"  target="_ blank">
+                    <img src="icons/vkontakte.svg" alt="Ссылка на профиль в vkontakte">
+                </a>
+            </div>
+            <div class="contacts_link">
+                <address>
+                    <a href="mailto:labuz291@gmail.com">
+                        <img src="icons/gmail.svg" alt="Ссылка на почту gmail">
+                    </a>
+                </address>
+            </div>
+            <div class="contacts_link">
+                <address>
+                    <a href="mailto:labuzov291@yandex.ru">
+                        <img src="icons/pngwing.png" style="width: 30px; height: 22px; margin-top: 7px;" alt="Ссылка на почту yandex">
+                    </a>
+                </address>
+            </div>
+        </footer>
+        <div class="footer_spacer">
+        </div>
+        <script src="js/script_for_deposit.js">
+        </script>
+    </body>
+</html>

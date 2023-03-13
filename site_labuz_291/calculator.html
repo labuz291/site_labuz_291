@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Сайт labuz_291</title>
+        <link rel="stylesheet" href="css/hover_for_calc.css">
+        <link rel="stylesheet" href="css/styles_for_calc.css">
+        <link rel="stylesheet" href="css/styles_for_header.css">
+        <link rel="stylesheet" href="css/styles_for_footer.css">
+        <link rel="stylesheet" href="css/common_styles.css">
+    </head>
+    <body class="calc_body" background="img/102321.jpg">
+        <header>
+            <div class="navigation">
+                <nav class="main_navigation">
+                    <div class="main_menu">
+                        <button>
+                            <img src="img/wing.png" alt="avatar-button">
+                        </button>
+                    </div>
+                    <div class="main_link">
+                        <a href="index.html">Главная</a>
+                    </div>
+                    <div class="riddles_link">
+                        <a href="riddles.html">Загадки</a>
+                    </div>
+                    <div class="guess_link">
+                        <a href="guessing_game.html">Угадайка</a>
+                    </div>
+                    <div class="printing_link">
+                        <a href="blindly_printing.html">Печаталка</a>
+                    </div>
+                    <div class="calc_link">
+                        <a href="#">Калькулятор</a>
+                    </div>
+                    <div class="deposit_link">
+                        <a href="deposit.html">Вклад</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div class="header_spacer">
+            </div>
+            <form name="calc" id="mycalc" method="get" action="#">
+                <table class="calculator">
+                    <caption>Calc  v.1</caption>
+                    <tr>
+                        <td colspan="5">
+                            <input id="extra_field" type="text" class="extra_window">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            <input name="result" id="field" type="text" class="window">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button id="btn_1" type="button" class="numbers" onclick="addNumber(1)">1</button>
+                        </td>
+                        <td>
+                            <button id="btn_2" type="button" class="numbers" onclick="addNumber(2)">2</button>
+                        </td>
+                        <td>
+                            <button id="btn_3" type="button" class="numbers" onclick="addNumber(3)">3</button>
+                        </td>
+                        <td>
+                            <button name="clean_1" id="btn_C" type="button" class="cl">C</button>
+                        </td>
+                        <td>
+                            <button name="clean_2" id="btn_CE" type="button" class="ce">CE</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button id="btn_4" type="button" class="numbers" onclick="addNumber(4)">4</button>
+                        </td>
+                        <td>
+                            <button id="btn_5" type="button" class="numbers" onclick="addNumber(5)">5</button>
+                        </td>
+                        <td>
+                            <button id="btn_6" type="button" class="numbers" onclick="addNumber(6)">6</button>
+                        </td>
+                        <td>
+                            <button type="button" class="operation" onclick="addOperator('+')">+</button>
+                        </td>
+                        <td>
+                            <button type="button" class="operation" onclick="addOperator('-')">-</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button id="btn_7" type="button" class="numbers" onclick="addNumber(7)">7</button>
+                        </td>
+                        <td>
+                            <button id="btn_8" vtype="button" class="numbers" onclick="addNumber(8)">8</button>
+                        </td>
+                        <td>
+                            <button id="btn_9" type="button" class="numbers" onclick="addNumber(9)">9</button>
+                        </td>
+                        <td>
+                            <button type="button" class="operation" onclick="addOperator('*')">*</button>
+                        </td>
+                        <td>
+                            <button type="button" class="operation" onclick="addOperator('/')">/</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button id="btn_0" type="button" class="numbers" onclick="addNumber(0)">0</button>
+                        </td>
+                        <td colspan="2">
+                            <button type="button" class="eq" style="width: 100%;" onclick="onEqually()">=</button>
+                        </td>
+                        <td>
+                            <button name="spot" id="point" value="." type="button" class="point">.</button>
+                        </td>
+                        <td>
+                            <!-- кнопка для открытия журнала (лога операций) -->
+                            <button name="serpmolot" id="btn_serpmolot" value="serpmolot" type="button" class="serpmolot"><img src="img/serpmolot.ico" alt="Go"></button>
+                        </td>
+                    </tr>
+                </table>
+                <div class="result_log">
+                    <!-- журнал для сохранения результатов вычислений -->
+                </div>
+            </form>
+        </main>
+        <footer>
+            <div class="logo">
+                <img src="img/symbol_lightbulb.png" alt="Логотип">
+            </div>
+            <div class="copyright">
+                <p class="labuz_291">
+                    Copyright &copy; labuz_291
+                </p>
+            </div>
+            <div class="contacts_link">
+                <a href="https://t.me/labuz_291" target="_ blank">
+                    <img src="icons/telegram.svg" alt="Ссылка на профиль в telegram">
+                </a>
+            </div>
+            <div class="contacts_link">
+                <a href="https://wa.me/79287565016?text=Привет!%20Сколько%20стоит%20такой%20сайт?" target="_ blank">
+                    <img src="icons/whatsapp.svg" alt="Ссылка на профиль в whatsapp">
+                </a>
+            </div>
+            <div class="contacts_link">
+                <a href="https://github.com/labuz291"  target="_ blank">
+                    <img src="icons/github.svg" alt="Ссылка на профиль в github">
+                </a>
+            </div>
+            <div class="contacts_link">
+                <a href="https://discord.com/channels/@me/labuz_291#1904"  target="_ blank">
+                    <img src="icons/discord.svg" alt="Whatsapp link">
+                </a>
+            </div>
+            <div class="contacts_link">
+                <a href="https://vk.com/labuz_291"  target="_ blank">
+                    <img src="icons/vkontakte.svg" alt="Ссылка на профиль в vkontakte">
+                </a>
+            </div>
+            <div class="contacts_link">
+                <address>
+                    <a href="mailto:labuz291@gmail.com">
+                        <img src="icons/gmail.svg" alt="Ссылка на почту gmail">
+                    </a>
+                </address>
+            </div>
+            <div class="contacts_link">
+                <address>
+                    <a href="mailto:labuzov291@yandex.ru">
+                        <img src="icons/pngwing.png" style="width: 30px; height: 22px; margin-top: 7px;" alt="Ссылка на почту yandex">
+                    </a>
+                </address>
+            </div>
+        </footer>
+        <div class="footer_spacer">
+        </div>
+        <script src="js/script_for_calc.js">
+        </script>
+    </body>
+</html>

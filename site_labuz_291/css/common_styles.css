@@ -1,0 +1,25 @@
+body {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #585656;
+}
+
+.header_spacer {
+    width: auto;
+    height: 55px;
+  }  
+
+  .footer_spacer {
+    width: auto;
+    height: 55px;
+  }  
+
+h1 {
+    font-size: 1.5em;
+    color: #FAEBD7;
+    font-family: "Comic Sans MS", sans-serif;
+    text-align: center;
+    text-shadow: #F4A460 1px 0 15px;
+}

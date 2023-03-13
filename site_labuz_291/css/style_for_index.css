@@ -1,0 +1,131 @@
+main .greeting_box {
+    display: grid;
+    grid-template-columns: repeat(1fr, 2fr);
+    grid-template-rows: repeat(auto, auto);
+    margin: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+main .greeting_box .represent {
+    margin: 7px;
+    padding: 7px;
+    background-color: #fff7ee;
+    grid-column-start:2;
+    border-radius: 10px;
+    width: auto;
+    background: rgba(240, 229, 196, 0.3);
+    box-shadow: 1px 2px 20px 1px rgba(0, 0, 0, 0.15),
+                -5px -5px 10px rgba(200, 180, 150, 0.15),
+                5px 5px 10px rgba(200, 180, 150, 0.15),
+                inset 5px 10px 20px 5px rgba(201, 178, 78, 0.15),
+                inset -7px -7px 12px rgba(200, 180, 150, 0.15),
+                inset 5px 5px 12px rgba(200, 180, 150, 0.15);
+}
+
+main .greeting_box .represent p {
+    color: #161411;
+    text-align: center;
+    text-shadow: #b8a492 6px 0 20px;
+    font-size: 20px;
+    font-family: "Comic Sans MS", sans-serif;
+}
+
+main .greeting_box .represent p img {
+    width: 6.8em;
+    height: 1.5em;
+    margin: auto;
+    padding: auto;
+}
+
+main .greeting_box .represent .senor {
+  color: bisque;
+  text-shadow: #F4A460 10px 10 15px;
+}
+
+main .greeting_box .represent a {
+    color: #3939b6;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+}
+
+main .greeting_box .represent a:hover {
+    color: #2e2ef7;
+}
+/*
+main .greeting_box .represent a:active {
+    color: yellow;
+    text-decoration: underline;
+}
+
+main .greeting_box .represent a:visited {
+    color:#5a2f92;
+    text-decoration: none;
+}
+*/
+main .greeting_box .represent a:after {
+	content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: -2px;
+    width: 0;
+    height: 1.5px; /* Высота линии */
+    background-color: #2e2ef7;
+    transition: width 0.4s;
+}
+
+main .greeting_box .represent a:hover:after {
+	content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1.5px;
+    background-color: #2e2ef7;
+    transition: width 0.4s;
+}
+
+main .greeting_box .index_menu {
+    display: flex;
+    justify-content: center;
+    margin: 7px;
+    padding: 7px;
+    background-color: #fff7ee;
+    grid-column-start:2;
+    border-radius: 10px;
+    width: auto;
+    background: rgba(94, 134, 167, 0.3);
+    box-shadow: 1px 2px 20px 1px rgba(0, 0, 0, 0.15),
+                -5px -5px 10px rgba(200, 180, 150, 0.15),
+                5px 5px 10px rgba(200, 180, 150, 0.15),
+                inset 5px 10px 20px 5px rgba(68, 69, 148, 0.15),
+                inset -7px -7px 12px rgba(163, 138, 100, 0.15),
+                inset 5px 5px 12px rgba(182, 161, 131, 0.15);
+}
+
+main .greeting_box .index_menu .index_menu_sections {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main .greeting_box .index_menu a img {
+    filter: grayscale(40%);
+    margin-top: 10px;
+    height: 80px;
+    width: 80px;
+    transition: 0.6s;
+}
+
+main .greeting_box .index_menu a img:hover {
+    filter: grayscale(20%);
+    cursor: url(../icons/back_hand_index_point_in_gup.png), pointer;
+    transform: scale(1.3);
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Сайт labuz_291</title>
+        <link rel="stylesheet" href="css/style_for_guessing_game.css">
+        <link rel="stylesheet" href="css/styles_for_header.css">
+        <link rel="stylesheet" href="css/styles_for_footer.css">
+        <link rel="stylesheet" href="css/common_styles.css">
+    </head>
+    <body class="guessing_game_body" background="img/stock-vector-vector-rainbow-colored-background-from.jpg">
+        <header>
+            <div class="navigation">
+                <nav class="main_navigation">
+                    <div class="main_menu">
+                        <button>
+                            <img src="img/wing.png" alt="avatar-button">
+                        </button>
+                    </div>
+                    <div class="main_link">
+                        <a href="index.html">Главная</a>
+                    </div>
+                    <div class="riddles_link">
+                        <a href="riddles.html">Загадки</a>
+                    </div>
+                    <div class="guess_link">
+                        <a href="#">Угадайка</a>
+                    </div>
+                    <div class="printing_link">
+                        <a href="blindly_printing.html">Печаталка</a>
+                    </div>
+                    <div class="calc_link">
+                        <a href="calculator.html">Калькулятор</a>
+                    </div>
+                    <div class="deposit_link">
+                        <a href="deposit.html">Вклад</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div class="header_spacer">
+            </div>
+          <div class="gueess_box">
+            <h1>
+                Игра "Угадай число"
+            </h1>
+            <div class="general_block">
+                <div class="settingsBlock">
+                    <div class="gameMode">
+                        <p class="infoMessage">
+                            Режим игры
+                        </p>
+                        <div class="radio" id="radioButtons">
+                            <div class="radioBtn">
+                                <input type="radio" id="one_player" name="mode_variant" value="Один игрок">
+                                <label for="one_player">Один игрок</label>
+                            </div>
+                            <div class="radioBtn">
+                                <input type="radio" id="two_players" name="mode_variant" value="Два игрока">
+                                <label for="two_players">Два игрока</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="difficultyLevels">
+                        <p class="infoMessage">
+                            Уровень сложности
+                        </p>
+                        <div class="levels" id="complexity">
+                            <select name="complexityLevels" class="list" id="complexityLvls">
+                                <option value=”OneAttempt”>1 попытка</option>
+                                <option value=”TwoAttempts”>2 попытки</option>
+                                <option value=”ThreeAttempts”>3 попытки</option>
+                                <option value=”FourAttempt”>4 попытки</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="num_and_ans_box">
+                    <div class="ans">
+                        <input type="number" class="userAns" id="userAnswer" min="0" max="10" placeholder="10">
+                        <button type="button" class="answerButton" id="answerBtn" onclick="guess()">
+                            ОТВЕТИТЬ
+                        </button>
+                    </div>
+                    <div class="infoMsg">
+                        <p class="infoMessage" id="info">
+                            Отгадайте число от 1 до 10
+                        </p>
+                    </div>
+                </div>
+          </div>
+        </div>
+        <div class="footer_spacer">
+        </div>
+        </main>
+        <footer>
+            <div class="logo">
+                <img src="img/symbol_lightbulb.png" alt="Логотип">
+            </div>
+            <div class="copyright">
+                <p class="labuz_291">
+                    Copyright &copy; labuz_291
+                </p>
+            </div>
+            <div class="contacts_link">
+                <a href="https://t.me/labuz_291" target="_ blank">
+                    <img src="icons/telegram.svg" alt="Ссылка на профиль в telegram">
+                </a>
+            </div>
+            <div class="contacts_link">
+                <a href="https://wa.me/79287565016?text=Привет!%20Сколько%20стоит%20такой%20сайт?" target="_ blank">
+                    <img src="icons/whatsapp.svg" alt="Ссылка на профиль в whatsapp">
+                </a>
+            </div>
+            <div class="contacts_link">
+                <a href="https://github.com/labuz291"  target="_ blank">
+                    <img src="icons/github.svg" alt="Ссылка на профиль в github">
+                </a>
+            </div>
+            <div class="contacts_link">
+                <a href="https://discord.com/channels/@me/labuz_291#1904"  target="_ blank">
+                    <img src="icons/discord.svg" alt="Whatsapp link">
+                </a>
+            </div>
+            <div class="contacts_link">
+                <a href="https://vk.com/labuz_291"  target="_ blank">
+                    <img src="icons/vkontakte.svg" alt="Ссылка на профиль в vkontakte">
+                </a>
+            </div>
+            <div class="contacts_link">
+                <address>
+                    <a href="mailto:labuz291@gmail.com">
+                        <img src="icons/gmail.svg" alt="Ссылка на почту gmail">
+                    </a>
+                </address>
+            </div>
+            <div class="contacts_link">
+                <address>
+                    <a href="mailto:labuzov291@yandex.ru">
+                        <img src="icons/pngwing.png" style="width: 30px; height: 22px; margin-top: 7px;" lt="Ссылка на почту yandex">
+                    </a>
+                </address>
+            </div>
+        </footer>
+        <div class="footer_spacer">
+        </div>
+        <script src="js/script_for_guessing_game.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,115 @@
+main {
+    display: grid;
+}
+
+.printing_heading {
+    width: auto;
+    height: 50px;
+    margin-top: 55px;
+    border-radius: 10px;
+    background: rgba(36, 34, 31, 0.7);
+    box-shadow: 1px 2px 20px 1px rgba(0, 0, 0, 0.15),
+                -5px -5px 10px rgba(200, 180, 150, 0.15),
+                5px 5px 10px rgba(200, 180, 150, 0.15),
+                inset 5px 10px 20px 5px rgba(201, 178, 78, 0.15),
+                inset -7px -7px 12px rgba(200, 180, 150, 0.15),
+                inset 5px 5px 12px rgba(200, 180, 150, 0.15);
+}
+
+.printing_box {
+    width: 100%;
+    height: 25em;
+    margin-top: 15px;
+    border-radius: 10px;
+    width: auto;
+    background: rgba(199, 186, 171, 0.7);
+    box-shadow: 1px 2px 20px 1px rgba(0, 0, 0, 0.15),
+                -5px -5px 10px rgba(200, 180, 150, 0.15),
+                5px 5px 10px rgba(200, 180, 150, 0.15),
+                inset 5px 10px 20px 5px rgba(201, 178, 78, 0.15),
+                inset -7px -7px 12px rgba(200, 180, 150, 0.15),
+                inset 5px 5px 12px rgba(200, 180, 150, 0.15);
+}
+
+.printing_box .infoMessage {
+    width: 100%;
+    height: 6em;
+    font-size: 1.5em;
+    font-family: "Comic Sans MS", sans-serif;
+    color: 	#332c27;
+    text-align: center;
+    text-shadow: #F4A460 1px 0 15px;
+}
+
+.printing_box .userAns {
+    display: grid;
+    border: 3px solid #52443b;
+    border-radius: 10px;
+    width: 300px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f8ebda;
+    font-size: 1.7em;
+    color: #2b251f;
+    font-family: "Verdana", sans-serif;
+    box-shadow: 1px 2px 20px 1px rgba(0, 0, 0, 0.5),
+                -5px -5px 10px rgba(70,70,70,0.12),
+                5px 5px 10px rgba(255,255,255,0.5),
+                inset 1px 2px 20px 1px rgba(133, 119, 59, 0.5),
+                inset -3px -3px 7px rgba(148, 112, 34, 0.12),
+                inset 3px 3px 7px rgba(226, 231, 159, 0.5);
+    background: url("../icons/accessoriestexteditor.svg") no-repeat center right;
+    padding-right: 80px;
+    background-size: auto 90%;
+    background-color: rgba(221, 197, 154, 0.7);
+    transition: 0.2s;
+}
+
+.printing_box .userAns:hover {
+    border: 3px solid #F4A460;
+    cursor: url(../icons/gui_action_select_icon.png), text; /* не работает */
+}
+
+.printing_box .answerButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3b3938;
+    background-color: #FFE4E1;
+    font-family: "Jazz LET", sans-serif;
+    width: 150px;
+    height: 55px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: 1px 2px 20px 1px rgba(0, 0, 0, 0.1),
+                -5px -5px 10px rgba(70,70,70,0.1),
+                5px 5px 10px rgba(255,255,255,0.1),
+                inset 1px 2px 20px 1px rgba(0, 0, 0, 0.1),
+                inset -5px -5px 10px rgba(70,70,70,0.1),
+                inset 5px 5px 10px rgba(255,255,255,0.1);
+    font-size: 1.5em;
+    border: 3px solid #3b3938;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-shadow: #DEB887 3px 0 45px;
+}
+
+.printing_box .answerButton:hover {
+    color: 	#f2ac6f;
+    background-color: 	#808080;
+    box-shadow: 1px 2px 20px 1px rgba(0, 0, 0, 0.5),
+                -5px -5px 10px rgba(70,70,70,0.12),
+                inset 1px 2px 20px 1px rgba(0, 0, 0, 0.5),
+                inset -5px -5px 10px rgba(70,70,70,0.12);
+    border: 3px solid #f2ac6f;
+    cursor: url(../icons/back_hand_index_point_in_gup.png), pointer;
+  }
+
+  input, textarea {outline:none;}
+  input:active, textarea:active {outline:none;}
+  :focus {outline:none;}
+  textarea {resize:none;}
+  textarea {resize:vertical;}
+  textarea {resize:horizontal;}

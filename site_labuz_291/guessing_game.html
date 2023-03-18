@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="css/styles_for_footer.css">
         <link rel="stylesheet" href="css/common_styles.css">
     </head>
-    <body class="guessing_game_body" background="img/stock-vector-vector-rainbow-colored-background-from.jpg">
+    <body class="guessing_game_body" background="img/background_008.jpg">
         <header>
             <div class="navigation">
                 <nav class="main_navigation">
@@ -47,8 +47,21 @@
             <h1>
                 Игра "Угадай число"
             </h1>
-            <div class="general_block">
-                <div class="settingsBlock">
+            <div class="generalBlock" id="general_block">
+                <div class="infoMsg" id="info_msg">
+                    <p class="infoMessage" id="info">
+                        Отгадайте число от 1 до 10
+                    </p>
+                </div>
+                <div class="numAndAnsBox" id="num_and_ans_box">
+                    <div class="ans" id ="ans">
+                        <input type="number" class="userAns" id="userAnswer" min="0" max="10" placeholder="10">
+                        <button type="button" class="answerButton" id="answerBtn" onclick="guess()">
+                            ОТВЕТИТЬ
+                        </button>
+                    </div>
+                </div>
+                <div class="settingsBlock" id="settings_block">
                     <div class="gameMode">
                         <p class="infoMessage">
                             Режим игры
@@ -76,19 +89,6 @@
                                 <option value=”FourAttempt”>4 попытки</option>
                             </select>
                         </div>
-                    </div>
-                </div>
-                <div class="num_and_ans_box">
-                    <div class="ans">
-                        <input type="number" class="userAns" id="userAnswer" min="0" max="10" placeholder="10">
-                        <button type="button" class="answerButton" id="answerBtn" onclick="guess()">
-                            ОТВЕТИТЬ
-                        </button>
-                    </div>
-                    <div class="infoMsg">
-                        <p class="infoMessage" id="info">
-                            Отгадайте число от 1 до 10
-                        </p>
                     </div>
                 </div>
           </div>

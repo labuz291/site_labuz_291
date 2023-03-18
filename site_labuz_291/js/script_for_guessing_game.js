@@ -6,8 +6,42 @@ let infoMessage = document.getElementById('info');
 const MAX_TRY_COUNT = 3;
 let tryCount = 0;
 
+let centralBlock = document.querySelector('.ans');
+
+function initialConcealment (id) {
+  document.getElementById(id).style.visibility = "hidden"; // hide
+}
+
+function initialAppearance (id) {
+  document.getElementById(id).style.visibility = "visible"; // show
+}
+
 function write(text) {
   infoMessage.innerHTML = text;
+}
+
+window.onload = function() {
+  initialConcealment('ans');
+  initialConcealment('info_msg');
+  initialConcealment('settings_block');
+  let startBox= document.createElement('div');
+  startBox.className = "startBox";
+  startBox.innerHTML = '<p>Добро пожаловать в <strong>"Угадайку"</strong></p><p>Компьютер загадает Вам число, а Вы можете попробовать его угадать.</p><p>Чтобы начать игру, нажмите <strong>"ИГРАТЬ"</strong>';
+  centralBlock.replaceWith(startBox);
+  let startBtn = document.createElement('button');
+  startBtn.className = "startButton";
+  startBtn.id = 'startButtonId';
+  startBtn.innerHTML = "ИГРАТЬ";
+  startBox.append(startBtn);
+  let startBtnClicked = false;
+  startBtn.addEventListener("click", function() {
+    startBtnClicked = true;
+    initialConcealment('startButtonId');
+    startBox.replaceWith(centralBlock);
+    initialAppearance('ans');
+    initialAppearance('info_msg');
+    initialAppearance('settings_block');
+  } );
 }
 
 function readInt() {

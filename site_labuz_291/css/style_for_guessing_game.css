@@ -18,23 +18,74 @@
 .gueess_box h1 {
     margin: 5px;
     padding-top: 10px;
-    color: #3e2daf;
+    color: #4a4953;
     text-shadow: #F4A460 3px 0 30px;
 }
 
-.gueess_box .general_block {
+.gueess_box .generalBlock {
   display: grid;
   justify-content: center;
   grid-template-columns: 1fr 2fr 2fr;
 }
 
-.gueess_box .general_block .settingsBlock {
+.gueess_box .generalBlock .startBox {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  margin: 7px;
+  padding: 7px;
+  border: 2px solid #4a4953;
+  border-radius: 10px;
+  color: #2c284c;
+  text-shadow: #F4A460 3px 0 30px;
+  background-color: #dff0d8;
+  background: rgba(211, 185, 156, 0.3);
+  box-shadow: 1px 2px 20px 1px rgba(0, 0, 0, 0.15),
+              -5px -5px 10px rgba(200, 180, 150, 0.15),
+              5px 5px 10px rgba(200, 180, 150, 0.15),
+              inset 5px 10px 20px 5px rgba(68, 69, 148, 0.15),
+              inset -7px -7px 12px rgba(163, 138, 100, 0.15),
+              inset 5px 5px 12px rgba(182, 161, 131, 0.15);
+}
+
+.gueess_box .generalBlock .startBox .startButton {
+  color: #3b3938;
+  background-color: #FFE4E1;
+  font-family: "Jazz LET", sans-serif;
+  width: 6.2em;
+  height: 2.2em;
+  border-radius: 10px;
+  box-shadow: 1px 2px 20px 1px rgba(0, 0, 0, 0.1),
+              -5px -5px 10px rgba(70,70,70,0.1),
+              5px 5px 10px rgba(255,255,255,0.1),
+              inset 1px 2px 20px 1px rgba(0, 0, 0, 0.1),
+              inset -5px -5px 10px rgba(70,70,70,0.1),
+              inset 5px 5px 10px rgba(255,255,255,0.1);
+  font-size: 1.5em;
+  border: 3px solid #3b3938;
+  margin: auto;
+  padding: auto;
+  text-shadow: #DEB887 3px 0 45px;
+}
+
+.gueess_box .generalBlock .startBox .startButton:hover {
+  color: 	#f2ac6f;
+  background-color: 	#808080;
+  box-shadow: 1px 2px 20px 1px rgba(0, 0, 0, 0.5),
+              -5px -5px 10px rgba(70,70,70,0.12),
+              inset 1px 2px 20px 1px rgba(0, 0, 0, 0.5),
+              inset -5px -5px 10px rgba(70,70,70,0.12);
+  border: 3px solid #f2ac6f;
+  cursor: url(../icons/back_hand_index_point_in_gup.png), pointer;
+}
+
+.gueess_box .generalBlock .settingsBlock {
   display: grid;
   margin: auto;
   padding: auto;
 }
 
-.gueess_box .general_block .gameMode {
+.gueess_box .generalBlock .gameMode {
   margin: 10px;
   margin-left: 25px;
   padding: 10px;
@@ -50,7 +101,7 @@
               inset 5px 5px 12px rgba(182, 161, 131, 0.35);
 }
 
-.gueess_box .general_block .gameMode .infoMessage {
+.gueess_box .generalBlock .gameMode .infoMessage {
   font-size: 1.2em;
   font-family: "Comic Sans MS", sans-serif;
   color: 	#fdf8ff;
@@ -60,7 +111,7 @@
   margin-top: 10px;
 }
 
-.gueess_box .general_block .gameMode .radio {
+.gueess_box .generalBlock .gameMode .radio {
   font-size: 1.2em;
   font-family: "Comic Sans MS", sans-serif;
   color: 	#fdf8ff;
@@ -70,14 +121,14 @@
   margin-top: 1em;
 }
 
-.gueess_box .general_block .gameMode .radioBtn {
+.gueess_box .generalBlock .gameMode .radioBtn {
 	display: inline-block;
 	margin: 10px;
 }
-.gueess_box .general_block .gameMode .radioBtn input[type=radio] {
+.gueess_box .generalBlock .gameMode .radioBtn input[type=radio] {
 	display: none;
 }
-.gueess_box .general_block .gameMode .radioBtn label {
+.gueess_box .generalBlock .gameMode .radioBtn label {
 	display: inline-block;
 	cursor: pointer;
 	padding: 0px 15px;
@@ -88,23 +139,23 @@
   transition: 0.1s;
 }
 
-.gueess_box .general_block .gameMode .radioBtn input[type=radio]:checked + label {
+.gueess_box .generalBlock .gameMode .radioBtn input[type=radio]:checked + label {
 	background: #f0d096;
   color: #363232;
   border-color: #363232;
 }
 
-.gueess_box .general_block .gameMode .radioBtn label:hover {
+.gueess_box .generalBlock .gameMode .radioBtn label:hover {
 	color: #d8b779;
   border-color: #d8b779;
 }
  
-.gueess_box .general_block .gameMode .radioBtn input[type=radio]:disabled + label {
+.gueess_box .generalBlock .gameMode .radioBtn input[type=radio]:disabled + label {
 	background: #efefef;
 	color: #535050;
 }
 
-.gueess_box .general_block .difficultyLevels {
+.gueess_box .generalBlock .difficultyLevels {
   margin: 10px;
   margin-left: auto;
   margin-right: auto;
@@ -121,7 +172,7 @@
               inset 5px 5px 12px rgba(182, 161, 131, 0.35);
 }
 
-.gueess_box .general_block .difficultyLevels .infoMessage {
+.gueess_box .generalBlock .difficultyLevels .infoMessage {
   font-size: 1.2em;
   font-family: "Comic Sans MS", sans-serif;
   color: 	#fdf8ff;
@@ -131,13 +182,13 @@
   margin-top: 10px;
 }
 
-.gueess_box .general_block .difficultyLevels .levels {
+.gueess_box .generalBlock .difficultyLevels .levels {
   text-align: center;
   margin: 0.7em;
   padding: 0.7em;
 }
 
-.gueess_box .general_block .difficultyLevels .levels .list {
+.gueess_box .generalBlock .difficultyLevels .levels .list {
   width: 120px;
   height: 30px;
   border: 2px solid #eee;
@@ -148,22 +199,22 @@
   box-shadow: 4px 4px #F4A460;
   }
 
-  .gueess_box .general_block .difficultyLevels .levels .list {
+  .gueess_box .generalBlock .difficultyLevels .levels .list {
     cursor: pointer;
     }
 
-.gueess_box .general_block .num_and_ans_box {
+.gueess_box .generalBlock .numAndAnsBox {
   display: flex;
   justify-content: space-between;
   justify-items: auto;
 }
 
-.gueess_box .general_block .ans {
+.gueess_box .generalBlock .ans {
   display: grid;
   padding: 4em;
 }
 
-.gueess_box .general_block .num_and_ans_box .infoMsg {
+.gueess_box .generalBlock .infoMsg {
   margin: 2.2em;
   padding: 1em;
   border-radius: 10px;
@@ -178,7 +229,7 @@
               inset 5px 5px 12px rgba(200, 180, 150, 0.15);
 }
 
-.gueess_box .general_block .num_and_ans_box .infoMsg .infoMessage {
+.gueess_box .generalBlock .infoMsg .infoMessage {
     margin: 1.5em;
     padding: 1.5em;
     width: 7em;
@@ -190,10 +241,6 @@
     text-shadow: #F4A460 2px 0 30px;
 }
 
-.gueess_box .general_block .num_and_ans_box #info {
-  text-align: center;
-}
-
   @keyframes userAns
   {
       40%{background-color: #8dabd8;}
@@ -201,7 +248,7 @@
       40%{background-color: #ddc8b0;}
   }
 
-.gueess_box .general_block .ans .userAns {
+.gueess_box .generalBlock .ans .userAns {
     margin: 0.6em;
     padding: 0.6em;
     border: 6px solid #F4A460;
@@ -226,12 +273,12 @@
     animation: userAns 10s infinite;
 }
 
-.gueess_box .general_block .ans .userAns:hover {
+.gueess_box .generalBlock .ans .userAns:hover {
     border: 6px solid #5243af;
     cursor: url("../icons/cursor_text_icon.png"), text;
 }
 
-.gueess_box .general_block .ans .answerButton {
+.gueess_box .generalBlock .ans .answerButton {
   align-items: center;
   justify-content: center;
   color: #3b3938;
@@ -254,7 +301,7 @@
   text-shadow: #DEB887 3px 0 45px;
 }
 
-.gueess_box .general_block .ans .answerButton:hover {
+.gueess_box .generalBlock .ans .answerButton:hover {
   color: 	#f2ac6f;
   background-color: 	#808080;
   box-shadow: 1px 2px 20px 1px rgba(0, 0, 0, 0.5),

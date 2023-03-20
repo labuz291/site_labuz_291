@@ -1,12 +1,20 @@
-let onePlayerMode = document.querySelector('#one_player');
-let twoPlayersMode = document.querySelector('#two_players');
+let onePlayerMode = document.getElementById('one_player');
+let twoPlayersMode = document.getElementById('two_players');
 const ANSWER = Math.round(Math.random() * 10);
-let number = document.getElementById('userAnswer');
+
+let number = document.getElementById('user_answer');
 let infoMessage = document.getElementById('info');
 const MAX_TRY_COUNT = 3;
 let tryCount = 0;
 
-let centralBlock = document.querySelector('.ans');
+let commonBlock = document.getElementById('common_block');
+let generalBlock = document.getElementById('general_block');
+let mainBlock = document.getElementById('num_and_ans_box');
+let centralBlock = document.getElementById('ans');
+let settingsBlock = document.getElementById('settings_block');
+let gameMode = document.getElementById('game_mode');
+let difficultyLevels = document.getElementById('difficulty_levels');
+let select = document.getElementById('complexityLvls');
 
 function initialConcealment (id) {
   document.getElementById(id).style.visibility = "hidden"; // hide
@@ -21,28 +29,72 @@ function write(text) {
 }
 
 window.onload = function() {
-  initialConcealment('ans');
-  initialConcealment('info_msg');
-  initialConcealment('settings_block');
+
   let startBox= document.createElement('div');
   startBox.className = "startBox";
   startBox.innerHTML = '<p>Добро пожаловать в <strong>"Угадайку"</strong></p><p>Компьютер загадает Вам число, а Вы можете попробовать его угадать.</p><p>Чтобы начать игру, нажмите <strong>"ИГРАТЬ"</strong>';
-  centralBlock.replaceWith(startBox);
+  commonBlock.replaceWith(startBox);
+
   let startBtn = document.createElement('button');
   startBtn.className = "startButton";
   startBtn.id = 'startButtonId';
   startBtn.innerHTML = "ИГРАТЬ";
   startBox.append(startBtn);
-  let startBtnClicked = false;
+
   startBtn.addEventListener("click", function() {
-    startBtnClicked = true;
+
     initialConcealment('startButtonId');
-    startBox.replaceWith(centralBlock);
-    initialAppearance('ans');
-    initialAppearance('info_msg');
+    startBox.replaceWith(commonBlock);
     initialAppearance('settings_block');
+
+    let beginBtn = document.createElement('button');
+    beginBtn.className = "beginButton";
+    beginBtn.id = 'beginButtonId';
+    beginBtn.innerHTML = "ВЫБРАТЬ";
+    difficultyLevels.replaceWith(beginBtn);
+    write('Пожалуйста, выберите режим игры.');
+
+    beginBtn.addEventListener("click", function() {
+
+      function checkGameMode() {
+        if (onePlayerMode.checked === true) {
+          console.log('onePlayerMode');
+          return onePlayerMode = true;
+        } else if (twoPlayersMode.checked === true) {
+          console.log('twoPlayersMode');
+          return twoPlayersMode = true;
+        }
+      }
+
+      beginBtn.onclick = checkGameMode();
+
+      if (onePlayerMode === true || twoPlayersMode === true) {
+        gameMode.replaceWith(difficultyLevels);
+        write('Пожалуйста, выберите уровень сложности.');
+      } else {
+        write('Вы не выбрали режим игры.');
+      }
+    } );
+
+    function checkDifficultyLvs() {
+      select.onchange = function() {
+        alert(this.value);
+      }
+    }
+
+    beginBtn.onclick = checkDifficultyLvs();
+
   } );
 }
+
+
+
+
+
+
+
+
+
 
 function readInt() {
   number = +number.value;
@@ -54,7 +106,6 @@ function hide(id) {
 }
 
 
-if (onePlayerMode.checked === true && twoPlayersMode.checked === false) {
 
   function guess() {
     tryCount++;
@@ -75,7 +126,8 @@ if (onePlayerMode.checked === true && twoPlayersMode.checked === false) {
       }
     }
   }
-} else if (twoPlayersMode.checked === true && onePlayerMode.checked === false) {
+
+  /*
   alert(`Игра УГАДАЙ ЧИСЛО в режиме двух игроков. Отгадайте число от 1 до 10. (Чтобы выйти из игры, нажмите "Отмена")`);
   let playerOne;
   let playerTwo;
@@ -118,7 +170,5 @@ if (onePlayerMode.checked === true && twoPlayersMode.checked === false) {
         }
       }
     }
-
   }
-
-}
+  */

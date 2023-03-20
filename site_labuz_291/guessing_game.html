@@ -9,8 +9,9 @@
         <link rel="stylesheet" href="css/styles_for_header.css">
         <link rel="stylesheet" href="css/styles_for_footer.css">
         <link rel="stylesheet" href="css/common_styles.css">
+        <link rel="shortcut icon" href="img/symbol_lightbulb.png">
     </head>
-    <body class="guessing_game_body" background="img/background_008.jpg">
+    <body class="guessing_game_body">
         <header>
             <div class="navigation">
                 <nav class="main_navigation">
@@ -43,58 +44,61 @@
         <main>
             <div class="header_spacer">
             </div>
-          <div class="gueess_box">
-            <h1>
-                Игра "Угадай число"
-            </h1>
-            <div class="generalBlock" id="general_block">
-                <div class="infoMsg" id="info_msg">
-                    <p class="infoMessage" id="info">
-                        Отгадайте число от 1 до 10
-                    </p>
-                </div>
-                <div class="numAndAnsBox" id="num_and_ans_box">
-                    <div class="ans" id ="ans">
-                        <input type="number" class="userAns" id="userAnswer" min="0" max="10" placeholder="10">
-                        <button type="button" class="answerButton" id="answerBtn" onclick="guess()">
-                            ОТВЕТИТЬ
-                        </button>
-                    </div>
-                </div>
-                <div class="settingsBlock" id="settings_block">
-                    <div class="gameMode">
-                        <p class="infoMessage">
-                            Режим игры
-                        </p>
-                        <div class="radio" id="radioButtons">
-                            <div class="radioBtn">
-                                <input type="radio" id="one_player" name="mode_variant" value="Один игрок">
-                                <label for="one_player">Один игрок</label>
-                            </div>
-                            <div class="radioBtn">
-                                <input type="radio" id="two_players" name="mode_variant" value="Два игрока">
-                                <label for="two_players">Два игрока</label>
+            <div class="gueess_box">
+                <h1>
+                    Игра "Угадай число"
+                </h1>
+                <div class="commonBlock" id="common_block">
+                    <div class="generalBlock" id="general_block">
+                        <div class="infoMsg" id="info_msg">
+                            <p class="infoMessage" id="info">
+
+                            </p>
+                        </div>
+                        <div class="numAndAnsBox" id="num_and_ans_box">
+                            <div class="ans" id ="ans">
+                                    <!--
+                                        <button class="userAns" id="user_answer" value="0" onclick="guess()">
+                                            0
+                                        </button>
+                                    -->
                             </div>
                         </div>
                     </div>
-                    <div class="difficultyLevels">
-                        <p class="infoMessage">
-                            Уровень сложности
-                        </p>
-                        <div class="levels" id="complexity">
-                            <select name="complexityLevels" class="list" id="complexityLvls">
-                                <option value=”OneAttempt”>1 попытка</option>
-                                <option value=”TwoAttempts”>2 попытки</option>
-                                <option value=”ThreeAttempts”>3 попытки</option>
-                                <option value=”FourAttempt”>4 попытки</option>
-                            </select>
+                    <div class="settingsBlock" id="settings_block">
+                        <div class="gameMode" id="game_mode">
+                            <p class="infoMessage">
+                                Режим игры
+                            </p>
+                            <div class="radio" id="radioButtons">
+                                <div class="radioBtn">
+                                    <input type="radio" id="one_player" name="mode_variant" value="Один игрок">
+                                    <label for="one_player">Один игрок</label>
+                                </div>
+                                <div class="radioBtn">
+                                    <input type="radio" id="two_players" name="mode_variant" value="Два игрока">
+                                    <label for="two_players">Два игрока</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="difficultyLevels" id="difficulty_levels">
+                            <p class="infoMessage">
+                                Уровень сложности
+                            </p>
+                            <div class="levels" id="complexity">
+                                <select name="complexityLevels" class="list" id="complexityLvls">
+                                    <option value=”1” id="one_attempt">1 попытка</option>
+                                    <option value=”2” id="two_attempts">2 попытки</option>
+                                    <option value=”3” id="three_attempts">3 попытки</option>
+                                    <option value=”4” id="four_attempts">4 попытки</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
-          </div>
-        </div>
-        <div class="footer_spacer">
-        </div>
+            </div>
+            <div class="footer_spacer">
+            </div>
         </main>
         <footer>
             <div class="logo">
@@ -106,27 +110,27 @@
                 </p>
             </div>
             <div class="contacts_link">
-                <a href="https://t.me/labuz_291" target="_ blank">
+                <a href="https://t.me/labuz_291" target="blank">
                     <img src="icons/telegram.svg" alt="Ссылка на профиль в telegram">
                 </a>
             </div>
             <div class="contacts_link">
-                <a href="https://wa.me/79287565016?text=Привет!%20Сколько%20стоит%20такой%20сайт?" target="_ blank">
+                <a href="https://wa.me/79287565016?text=Привет!%20Сколько%20стоит%20такой%20сайт?" target="blank">
                     <img src="icons/whatsapp.svg" alt="Ссылка на профиль в whatsapp">
                 </a>
             </div>
             <div class="contacts_link">
-                <a href="https://github.com/labuz291"  target="_ blank">
+                <a href="https://github.com/labuz291"  target="blank">
                     <img src="icons/github.svg" alt="Ссылка на профиль в github">
                 </a>
             </div>
             <div class="contacts_link">
-                <a href="https://discord.com/channels/@me/labuz_291#1904"  target="_ blank">
+                <a href="https://discord.com/channels/@me/labuz_291#1904"  target="blank">
                     <img src="icons/discord.svg" alt="Whatsapp link">
                 </a>
             </div>
             <div class="contacts_link">
-                <a href="https://vk.com/labuz_291"  target="_ blank">
+                <a href="https://vk.com/labuz_291"  target="blank">
                     <img src="icons/vkontakte.svg" alt="Ссылка на профиль в vkontakte">
                 </a>
             </div>
@@ -140,7 +144,7 @@
             <div class="contacts_link">
                 <address>
                     <a href="mailto:labuzov291@yandex.ru">
-                        <img src="icons/pngwing.png" style="width: 30px; height: 22px; margin-top: 7px;" lt="Ссылка на почту yandex">
+                        <img src="icons/pngwing.png" style="width: 30px; height: 22px; margin-top: 7px;" alt="Ссылка на почту yandex">
                     </a>
                 </address>
             </div>

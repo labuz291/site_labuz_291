@@ -1,0 +1,11 @@
+/* Светлая тема */
+.light-theme {
+  color: #333333;
+  background-color: #eae9f2;
+}
+
+/* Тёмная тема */
+.dark-theme {
+  color: #f2f2f2;
+  background-color: #17161a;
+}

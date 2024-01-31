@@ -1,199 +1,247 @@
-let onePlayerMode = document.getElementById('one_player');
-let twoPlayersMode = document.getElementById('two_players');
+let commonBlock = document.getElementById('commonBlock');
+let generalBlock = document.getElementById('generalBlock');
+let mainBlock = document.getElementById('numAndAnsBox');
+let centralBlock = document.getElementById('ans');
+let settingsBlock = document.getElementById('settingsBlock');
+let gameMode = document.getElementById('gameMode');
+let difficultyLevels = document.getElementById('difficultyLevels');
+let select = document.getElementById('complexityLvls');
+let refreshBtnDiv = document.getElementById('refreshBtnDiv');
+let refreshBtn = document.getElementById('refreshBtn');
+let settingInfoMessage = document.getElementById('info');
+let gameInfoMessage = document.getElementById('mainInfo');
+let onePlayerMode = document.getElementById('onePlayer');
+let twoPlayersMode = document.getElementById('twoPlayers');
+let journalDiv = document.getElementById('statisticsDiv');
+let journalBox = document.getElementById('statisticsDiv');
+let journal = document.getElementById('statistics');
 let rightAnswer = 0;
-let answer = document.getElementById('answer');
 let userAnswer = 0;
-let infoMessage = document.getElementById('info');
 let maxTryCount = 1;
 let tryCount = 0;
-
-let commonBlock = document.getElementById('common_block');
-let generalBlock = document.getElementById('general_block');
-let mainBlock = document.getElementById('num_and_ans_box');
-let centralBlock = document.getElementById('ans');
-let settingsBlock = document.getElementById('settings_block');
-let gameMode = document.getElementById('game_mode');
-let difficultyLevels = document.getElementById('difficulty_levels');
-let select = document.getElementById('complexityLvls');
 let maxValue = 0;
+let numBtn = null;
+let numBtnDiv = null;
+let numCollection = null;
+let record = null;
+let data = new Date();
+let year = data.getFullYear();
+let month = data.getMonth();
+let day = data.getDate();
+let hour = data.getHours();
+let minutes = data.getMinutes();
+let seconds = data.getSeconds();
 
-function hide(id) {
-  document.getElementById(id).style.display = 'none';
+let removeElement = (element) => element.style.display = 'none';
+let returnElement = (element) => element.style.display = 'block';
+// let hideElement = (element) => element.style.visibility = 'hidden';
+// let showElement = (element) => element.style.visibility = 'visible';
+
+function getMonthInRussian(month) {
+  switch (month)
+{
+  case 0: month="января"; break;
+  case 1: month="февраля"; break;
+  case 2: month="марта"; break;
+  case 3: month="апреля"; break;
+  case 4: month="мае"; break;
+  case 5: month="июня"; break;
+  case 6: month="июля"; break;
+  case 7: month="августа"; break;
+  case 8: month="сентября"; break;
+  case 9: month="октября"; break;
+  case 10: month="ноября"; break;
+  case 11: month="декабря"; break;
 }
 
-function initialConcealment (id) {
-  document.getElementById(id).style.visibility = "hidden"; // hide
+console.log(`${ day } ${ month } ${ year } года. ${ hour } часов ${ minutes } минут ${ seconds } секунд.`);
 }
 
-function initialAppearance (id) {
-  document.getElementById(id).style.visibility = "visible"; // show
+refreshBtn.onclick = function() {
+  playGame();
 }
 
-function write(text) {
-  infoMessage.innerHTML = text;
-}
+removeElement(refreshBtn);
+removeElement(journalDiv);
 
-window.onload = function() {
+let startBox = document.createElement('div');
+startBox.className = 'start_box';
+commonBlock.replaceWith(startBox);
 
-  initialConcealment('answer');
+let startMsg = document.createElement('div');
+startMsg.className = 'info_message';
+startMsg.innerHTML = '<p>Добро пожаловать в <strong>"Угадайку"</strong></p><p>Компьютер загадает Вам число, а Вы можете попробовать его угадать.</p><p>Чтобы начать игру, нажмите <strong>"ИГРАТЬ"</strong>';
+startBox.append(startMsg);
 
-  let startBox= document.createElement('div');
-  startBox.className = "startBox";
-  let startMsg= document.createElement('div');
-  startMsg.innerHTML = '<p>Добро пожаловать в <strong>"Угадайку"</strong></p><p>Компьютер загадает Вам число, а Вы можете попробовать его угадать.</p><p>Чтобы начать игру, нажмите <strong>"ИГРАТЬ"</strong>';
-  commonBlock.replaceWith(startBox);
+let startBtn = document.createElement('button');
+startBtn.className = 'start_button';
+startBtn.id = 'startButtonId';
+startBtn.innerHTML = 'ИГРАТЬ';
+startBox.appendChild(startBtn);
 
-  let startBtn = document.createElement('button');
-  startBtn.className = "startButton";
-  startBtn.id = 'startButtonId';
-  startBtn.innerHTML = "ИГРАТЬ";
-  startBox.append(startMsg);
-  startBox.appendChild(startBtn);
+startBtn.addEventListener("click", function() {
+  startBox.replaceWith(commonBlock);
+});
 
-  let guessingNum = document.createElement('input');
-  guessingNum.className = "guessingNumber";
-  guessingNum.id = 'guessingNumberId';
-  guessingNum.type = 'number';
-  guessingNum.min = '0';
-  guessingNum.placeholder = 'Число';
+removeElement(difficultyLevels);
 
-  startBtn.addEventListener("click", function() {
+settingInfoMessage.innerHTML = 'Пожалуйста, выберите режим игры.';
 
-    startMsg.innerHTML = '<p>Компьютер загадает число от 0 до любого числа, которое Вы введёте.</p>';
+let chooseModeBtn = document.createElement('button');
+chooseModeBtn.className = 'begin_button';
+chooseModeBtn.id = 'chooseModeBtnId';
+chooseModeBtn.innerHTML = 'ВЫБРАТЬ';
 
-    startBox.appendChild(guessingNum);
-    startBox.appendChild(startBtn);
-    startBtn.innerHTML = "ВЫБРАТЬ";
+let chooseLvlBtn = document.createElement('button');
+chooseLvlBtn.className = 'begin_button';
+chooseLvlBtn.id = 'chooseLvlBtnId';
+chooseLvlBtn.innerHTML = 'ВЫБРАТЬ';
 
-    startBtn.addEventListener("click", function() {
+commonBlock.appendChild(chooseModeBtn);
 
-      maxValue = guessingNum.value;
+chooseModeBtn.onclick = function() {
 
-      if (maxValue === "") {
-        startMsg.innerHTML = '<p>Пожалуйста, введите число.</p>';
-      } else {
-        maxValue = +maxValue;
-        rightAnswer = Math.round(Math.random() * maxValue);
-        startBox.replaceWith(commonBlock);
-        initialAppearance('settings_block');
-        }
+  if (onePlayerMode.checked === true) {
+    onePlayerMode = true;
+    twoPlayersMode = false;
+  } else if (twoPlayersMode.checked === true) {
+    twoPlayersMode = true;
+    onePlayerMode = false;
+  }
 
-      let beginBtn = document.createElement('button');
-      beginBtn.className = "beginButton";
-      beginBtn.id = 'beginButtonId';
-      beginBtn.innerHTML = "ВЫБРАТЬ";
-      difficultyLevels.replaceWith(beginBtn);
-      write('Пожалуйста, выберите режим игры.');
-
-      beginBtn.addEventListener("click", function() {
-
-        function checkGameMode() {
-          if (onePlayerMode.checked === true) {
-            return onePlayerMode = true;
-          } else if (twoPlayersMode.checked === true) {
-            return twoPlayersMode = true;
-          }
-        }
-
-        beginBtn.onclick = checkGameMode();
-
-        if (onePlayerMode === true || twoPlayersMode === true) {
-          gameMode.replaceWith(difficultyLevels);
-          write('Пожалуйста, выберите уровень сложности.');
-        } else {
-          write('Вы не выбрали режим игры.');
-        }
-  
-        function checkDifficultyLvs() {
-          maxTryCount = +select.value;
-          let setupComplet = document.createElement('button');
-          setupComplet.className = "beginButton";
-          setupComplet.id = 'setupCompletId';
-          setupComplet.innerHTML = "ГОТОВО";
-          beginBtn.replaceWith(setupComplet);
-
-          setupComplet.onclick = function () {
-
-            let gameBox= document.createElement('div');
-            gameBox.className = 'gameBox';
-            gameBox.id = 'gameBoxId';
-            settingsBlock.replaceWith(gameBox);
-            
-            for (let i = 0; i <= maxValue; i++) {
-              let numBtn = document.createElement('button');
-              numBtn.className = 'numBtn';
-              numBtn.value = i;
-              numBtn.innerHTML = i;
-              numBtn.id = i;
-              gameBox.appendChild(numBtn);
-              write(`Угадайте число от 0 до ${maxValue}`);
-            }
-
-            //gameBox.appendChild(answer);
-            //initialAppearance('answer');
-            
-            let numCollection = document.querySelectorAll('.numBtn');
-            numCollection.id = 'collection';
-
-            function choose(_numbers) {
-              for (let num of numCollection) {
-                num.onclick = function addNum() {
-                  userAnswer = +num.value;
-                  if (userAnswer === rightAnswer && tryCount < maxTryCount) {
-                    write(`Поздравляю, Вы угадали!`);
-                    hide('gameBoxId');
-                  } else {
-                    tryCount++;
-                    if (userAnswer < rightAnswer && tryCount < maxTryCount) {
-                      write(`Вы ввели слишком маленькое число<br /> Осталось ${maxTryCount - tryCount} попыток`);
-                    } else if (userAnswer > rightAnswer && tryCount < maxTryCount) {
-                      write(`Вы ввели слишком большое число<br /> Осталось ${maxTryCount - tryCount} попыток`);
-                    } else if (tryCount >= maxTryCount && userAnswer !== rightAnswer) {
-                    write(`У Вас закончились попытки. Правильный ответ ${rightAnswer}`);
-                    hide('gameBoxId');
-                    }
-                  }
-                }
-              }
-            }
-
-            numCollection.onclick = choose();
-
-          }
-        }
-
-        beginBtn.onclick = checkDifficultyLvs();
-
-      } );
-
-  } );
-  } );
-
-}
-
-/*
-function guess() {
-
-  tryCount++;
-
-  if (userAnswer === rightAnswer && tryCount < maxTryCount) {
-    write(`Поздравляю, Вы угадали!`);
-    hide('collection');
-    hide('answer');
+  if (onePlayerMode === true || twoPlayersMode === true) {
+    returnElement(difficultyLevels);
+    gameMode.replaceWith(difficultyLevels);
+    settingInfoMessage.innerHTML = 'Пожалуйста, выберите уровень сложности.';
+    chooseModeBtn.replaceWith(chooseLvlBtn);
   } else {
-    if (userAnswer < rightAnswer && tryCount < maxTryCount) {
-      write(`Вы ввели слишком маленькое число<br /> Осталось ${maxTryCount - tryCount} попыток`);
-    } else if (userAnswer > rightAnswer && tryCount < maxTryCount) {
-      write(`Вы ввели слишком большое число<br /> Осталось ${maxTryCount - tryCount} попыток`);
-    } else if (tryCount >= maxTryCount && userAnswer !== rightAnswer) {
-    write(`У Вас закончились попытки. Правильный ответ ${rightAnswer}`);
-    hide('collection');
-    hide('answer');
-    }
+    settingInfoMessage.innerHTML = 'Вы не выбрали режим игры.';
   }
 
 }
-*/
+
+let setupCompletBtn = document.createElement('button');
+setupCompletBtn.className = 'begin_button';
+setupCompletBtn.id = 'setupCompletBtnId';
+setupCompletBtn.innerHTML = "ГОТОВО";
+
+chooseLvlBtn.onclick = function() {
+  maxTryCount = +select.value;
+  chooseLvlBtn.replaceWith(setupCompletBtn);
+}
+
+let quantityChooseBtn = document.createElement('button');
+quantityChooseBtn.className = 'begin_button';
+quantityChooseBtn.id = 'quantityChooseBtnId';
+quantityChooseBtn.innerHTML = "Ввести";
+
+let guessingNum = document.createElement('input');
+guessingNum.className = 'guessing_number';
+guessingNum.id = 'guessingNumberId';
+guessingNum.type = 'number';
+// guessingNum.min = '1';
+// guessingNum.max = '100';
+// guessingNum.step = '1';
+guessingNum.placeholder = 'Число';
+
+setupCompletBtn.onclick = function() {
+  removeElement(settingsBlock);
+  gameInfoMessage.innerHTML = '<p>Компьютер загадает число от 1 до любого числа, которое Вы введёте.</p>';
+  generalBlock.appendChild(guessingNum);
+  setupCompletBtn.replaceWith(quantityChooseBtn);
+}
+
+quantityChooseBtn.onclick = function() {
+  maxValue = guessingNum.value;
+
+  if (maxValue === "") {
+    gameInfoMessage.innerHTML = '<p>Пожалуйста, введите число.</p>';
+  } else {
+    returnElement(journalDiv);
+      // tryCount = 0;
+      maxValue = +maxValue;
+      makeBtns(maxValue);
+      playGame();
+    }
+}
+
+function makeBtns(maxValue) {
+  for (let i = 1; i <= maxValue; i++) {
+  numBtn = document.createElement('button');
+  numBtnDiv = document.createElement('div');
+  numBtn.className = 'num_btn';
+  numBtnDiv.className = 'num_btn_div';
+  numBtn.value = i;
+  numBtn.innerHTML = i;
+  numBtn.id = i;
+  numBtnDiv.append(numBtn);
+  centralBlock.appendChild(numBtnDiv);
+  }
+}
+
+function playGame() {
+  tryCount = 0;
+  
+  rightAnswer = Math.round(Math.random() * maxValue);
+  
+  numCollection = document.querySelectorAll('.num_btn');
+  
+  for (let num of numCollection) {
+    num.onclick = function() {
+
+    userAnswer = +num.value;
+            
+    tryCount++;
+
+    if (tryCount < maxTryCount) {
+      if (userAnswer === rightAnswer) {
+        gameInfoMessage.innerHTML = `<strong>Поздравляю, Вы угадали!</strong>`;
+        returnElement(refreshBtn);
+
+        record = document.createElement('p');
+        record.className = 'record';
+        record.innerHTML = `Угадано число ${ rightAnswer } c ${ tryCount } попытки<br />`;
+        journal.appendChild(record);
+        console.log(record);
+        // journal.appendChild(now);
+        now = new Date();
+        console.log(now);
+
+        numCollection = null;
+      } else if (userAnswer < rightAnswer) {
+          gameInfoMessage.innerHTML = `Число ${ userAnswer } слишком маленькое.<br /> Осталось ${maxTryCount - tryCount} попыток`;
+        } else if (userAnswer > rightAnswer) {
+            gameInfoMessage.innerHTML = `Число ${ userAnswer } слишком большое.<br /> Осталось ${maxTryCount - tryCount} попыток`;
+        }              
+    } else if (tryCount >= maxTryCount) {
+        if (userAnswer === rightAnswer) {
+          gameInfoMessage.innerHTML = `<strong>Поздравляю, Вы угадали!</strong>`;
+          returnElement(refreshBtn);
+
+          record = document.createElement('p');
+          record.className = 'record';
+          record.innerHTML = `Угадано число ${ rightAnswer } c ${ tryCount } попытки<br />`;
+          journal.appendChild(record);
+          console.log(record);
+          now = new Date();
+          // journal.appendChild(now);
+          console.log(now);
+
+          numCollection = null;
+        } else {
+            gameInfoMessage.innerHTML = `У Вас закончились попытки. Правильный ответ ${rightAnswer}`;
+            returnElement(refreshBtn);
+            numCollection = null;
+          }
+        }
+      }
+    }
+
+  removeElement(guessingNum);
+  removeElement(quantityChooseBtn);
+  gameInfoMessage.innerHTML = `Угадайте число от 1 до ${maxValue}`;
+}
+
   /*
   alert(`Игра УГАДАЙ ЧИСЛО в режиме двух игроков. Отгадайте число от 1 до 10. (Чтобы выйти из игры, нажмите "Отмена")`);
   let playerOne;

@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="css/common_styles.css">
         <link rel="shortcut icon" href="img/symbol_lightbulb.png">
     </head>
-    <body class="guessing_game_body">
+    <body>
         <header>
             <div class="navigation">
                 <nav class="main_navigation">
@@ -21,22 +21,34 @@
                         </button>
                     </div>
                     <div class="main_link">
-                        <a href="index.html">Главная</a>
+                        <a href="index.html">
+                            Главная
+                        </a>
                     </div>
                     <div class="riddles_link">
-                        <a href="riddles.html">Загадки</a>
+                        <a href="riddles.html">
+                            Загадки
+                        </a>
                     </div>
                     <div class="guess_link">
-                        <a href="#">Угадайка</a>
+                        <a href="#">
+                            Угадайка
+                        </a>
                     </div>
                     <div class="printing_link">
-                        <a href="blindly_printing.html">Печаталка</a>
+                        <a href="blindly_printing.html">
+                            Печаталка
+                        </a>
                     </div>
                     <div class="calc_link">
-                        <a href="calculator.html">Калькулятор</a>
+                        <a href="calculator.html">
+                            Калькулятор
+                        </a>
                     </div>
                     <div class="deposit_link">
-                        <a href="deposit.html">Вклад</a>
+                        <a href="deposit.html">
+                            Вклад
+                        </a>
                     </div>
                 </nav>
             </div>
@@ -44,58 +56,65 @@
         <main>
             <div class="header_spacer">
             </div>
-            <div class="gueess_box">
-                <h1>
+            <div class="main_container">
+                <div class="gueess_box">
+                  <h1>
                     Игра "Угадай число"
-                </h1>
-                <div class="commonBlock" id="common_block">
-                    <div class="generalBlock" id="general_block">
-                        <div class="infoMsg" id="info_msg">
-                            <p class="infoMessage" id="info">
+                    </h1>
+                    <div class="common_block" id="commonBlock">
+                        <div class="settings_block" id="settingsBlock">
+                            <p class="info_message" id="info">
 
                             </p>
-                        </div>
-                        <div class="numAndAnsBox" id="num_and_ans_box">
-                            <div class="ans" id ="ans">
-
-                                        <button class="answerClass" id="answer" value="answerValue" onclick="guess()">
-                                            ОТВЕТИТЬ
-                                        </button>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="settingsBlock" id="settings_block">
-                        <div class="gameMode" id="game_mode">
-                            <p class="infoMessage">
-                                Режим игры
-                            </p>
-                            <div class="radio" id="radioButtons">
-                                <div class="radioBtn">
-                                    <input type="radio" id="one_player" name="mode_variant" value="Один игрок">
-                                    <label for="one_player">Один игрок</label>
-                                </div>
-                                <div class="radioBtn">
-                                    <input type="radio" id="two_players" name="mode_variant" value="Два игрока">
-                                    <label for="two_players">Два игрока</label>
+                            <div class="game_mode" id="gameMode">
+                                <p class="info_message" id="settingInfo">
+                                    Режим игры
+                                </p>
+                                <div class="radio" id="radioButtons">
+                                    <div class="radio_btn">
+                                        <input type="radio" id="onePlayer" name="mode_variant" value="Один игрок">
+                                        <label for="onePlayer">Один игрок</label>
+                                    </div>
+                                    <div class="radio_btn">
+                                        <input type="radio" id="twoPlayers" name="mode_variant" value="Два игрока">
+                                        <label for="twoPlayers">Два игрока</label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="difficultyLevels" id="difficulty_levels">
-                            <p class="infoMessage">
-                                Уровень сложности
-                            </p>
-                            <div class="levels" id="complexity">
-                                <select name="complexityLevels" class="list" id="complexityLvls">
-                                    <option value=1 id="one_attempt">1 попытка</option>
-                                    <option value=2 id="two_attempts">2 попытки</option>
-                                    <option value=3 id="three_attempts">3 попытки</option>
-                                    <option value=4 id="four_attempts">4 попытки</option>
-                                </select>
+                            <div class="difficulty_levels" id="difficultyLevels">
+                                <p class="info_message">
+                                    Уровень сложности
+                                </p>
+                                <div class="levels" id="complexity">
+                                    <select name="complexityLevels" class="list" id="complexityLvls">
+                                        <option value=1 id="one_attempt" class="option">1 попытка</option>
+                                        <option value=2 id="two_attempts" class="option">2 попытки</option>
+                                        <option value=3 id="three_attempts" class="option">3 попытки</option>
+                                        <option value=4 id="four_attempts" class="option">4 попытки</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="general_block" id="generalBlock">
+                            <p class="info_message" id="mainInfo">
+                            </p>
+                            <div class="num_and_ans_box" id="numAndAnsBox">
+                                <div class="ans" id ="ans">
+                                </div>
+                                <div class="refresh_btn_div" id="refreshBtnDiv">
+                                    <button class="refresh_btn" id="refreshBtn">
+                                        <img src="icons/refresh_arrows_01.png" alt="Попробовать ещё раз">
+                                    </button> 
+                                </div>
+                            </div>
+                            <div class="game_statistics_div" id="statisticsDiv">
+                                <p class="game_statistics" id="statistics">
+                                </p>
+                            </div>
+                        </div>
+                    </div>                  
                 </div>
+
             </div>
             <div class="footer_spacer">
             </div>

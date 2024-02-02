@@ -13,7 +13,6 @@ let gameInfoMessage = document.getElementById('mainInfo');
 let onePlayerMode = document.getElementById('onePlayer');
 let twoPlayersMode = document.getElementById('twoPlayers');
 let journalDiv = document.getElementById('statisticsDiv');
-let journalBox = document.getElementById('statisticsDiv');
 let journal = document.getElementById('statistics');
 let rightAnswer = 0;
 let userAnswer = 0;
@@ -24,45 +23,73 @@ let numBtn = null;
 let numBtnDiv = null;
 let numCollection = null;
 let record = null;
-let data = new Date();
-let year = data.getFullYear();
-let month = data.getMonth();
-let day = data.getDate();
-let hour = data.getHours();
-let minutes = data.getMinutes();
-let seconds = data.getSeconds();
+let now = new Date();
+let year = now.getFullYear();
+let month = now.getMonth();
+let day = now.getDate();
+let hours = now.getHours();
+let minutes = now.getMinutes();
+let seconds = now.getSeconds();
+let timeMessage = '';
+let messageCount = 0;
+
+function getDoubleDigitTime(time) {
+  let resault = '';
+  if (time < 9) {
+    resault = `0${ time }`;
+  } else {
+    resault = time;
+  }
+  return resault;
+}
+
+function getRandomNum(userNum) {
+  let randomNum = Math.round(Math.random() * userNum);
+  if  (randomNum === 0) {
+    getRandomNum(userNum);
+  } else {
+    return randomNum;
+  }
+}
 
 let removeElement = (element) => element.style.display = 'none';
 let returnElement = (element) => element.style.display = 'block';
 // let hideElement = (element) => element.style.visibility = 'hidden';
 // let showElement = (element) => element.style.visibility = 'visible';
 
-function getMonthInRussian(month) {
-  switch (month)
-{
-  case 0: month="января"; break;
-  case 1: month="февраля"; break;
-  case 2: month="марта"; break;
-  case 3: month="апреля"; break;
-  case 4: month="мае"; break;
-  case 5: month="июня"; break;
-  case 6: month="июля"; break;
-  case 7: month="августа"; break;
-  case 8: month="сентября"; break;
-  case 9: month="октября"; break;
-  case 10: month="ноября"; break;
-  case 11: month="декабря"; break;
+rusMonthArray = [
+  'января',
+  'февраля',
+  'марта',
+  'апреля',
+  'мая',
+  'июня',
+  'июля',
+  'августа',
+  'сентября',
+  'октября',
+  'ноября',
+  'декабря'
+]
+
+let monthInRus = function(monthOfNewDate, monthArray) {
+  for (let i = 0; i < monthArray.length; i++) {
+    if (monthOfNewDate === i) {
+      return timeMessage = `Дата: ${ day } ${ monthArray[i] } ${ year } года. Время: ${ getDoubleDigitTime(hours) }:${ getDoubleDigitTime(minutes) }:${ getDoubleDigitTime(seconds) }.`;
+    }
+  }
 }
 
-console.log(`${ day } ${ month } ${ year } года. ${ hour } часов ${ minutes } минут ${ seconds } секунд.`);
-}
+timeMessage = monthInRus(month, rusMonthArray);
 
 refreshBtn.onclick = function() {
+  // now = new Date();
   playGame();
 }
 
 removeElement(refreshBtn);
 removeElement(journalDiv);
+removeElement(journal);
 
 let startBox = document.createElement('div');
 startBox.className = 'start_box';
@@ -158,6 +185,7 @@ quantityChooseBtn.onclick = function() {
     gameInfoMessage.innerHTML = '<p>Пожалуйста, введите число.</p>';
   } else {
     returnElement(journalDiv);
+    returnElement(journal);
       // tryCount = 0;
       maxValue = +maxValue;
       makeBtns(maxValue);
@@ -179,13 +207,28 @@ function makeBtns(maxValue) {
   }
 }
 
+// разобраться с блокированием кнопок
+/*
+function disableBtns(btnsCollection) {
+  for (let num of btnsCollection) {
+    num.disabled = 'true';
+  }
+}
+
+function showBtns(btnsCollection) {
+  for (let num of btnsCollection) {
+    num.disabled = 'false';
+  }
+}
+*/
+
 function playGame() {
   tryCount = 0;
   
-  rightAnswer = Math.round(Math.random() * maxValue);
+  rightAnswer = getRandomNum(maxValue);
   
   numCollection = document.querySelectorAll('.num_btn');
-  
+
   for (let num of numCollection) {
     num.onclick = function() {
 
@@ -197,19 +240,16 @@ function playGame() {
       if (userAnswer === rightAnswer) {
         gameInfoMessage.innerHTML = `<strong>Поздравляю, Вы угадали!</strong>`;
         returnElement(refreshBtn);
-
         record = document.createElement('p');
         record.className = 'record';
-        record.innerHTML = `Угадано число ${ rightAnswer } c ${ tryCount } попытки<br />`;
+        // now = new Date();
+        messageCount += 1;
+        record.innerHTML = `${ messageCount }. Угадано число ${ rightAnswer } c ${ tryCount } попытки.<br /> ${ timeMessage }`;
         journal.appendChild(record);
-        console.log(record);
-        // journal.appendChild(now);
-        now = new Date();
-        console.log(now);
-
         numCollection = null;
       } else if (userAnswer < rightAnswer) {
           gameInfoMessage.innerHTML = `Число ${ userAnswer } слишком маленькое.<br /> Осталось ${maxTryCount - tryCount} попыток`;
+
         } else if (userAnswer > rightAnswer) {
             gameInfoMessage.innerHTML = `Число ${ userAnswer } слишком большое.<br /> Осталось ${maxTryCount - tryCount} попыток`;
         }              
@@ -217,20 +257,23 @@ function playGame() {
         if (userAnswer === rightAnswer) {
           gameInfoMessage.innerHTML = `<strong>Поздравляю, Вы угадали!</strong>`;
           returnElement(refreshBtn);
-
           record = document.createElement('p');
           record.className = 'record';
-          record.innerHTML = `Угадано число ${ rightAnswer } c ${ tryCount } попытки<br />`;
+          // now = new Date();
+          messageCount += 1;
+          record.innerHTML = `${ messageCount }. Угадано число ${ rightAnswer } c ${ tryCount } попытки.<br /> ${ timeMessage }`;
           journal.appendChild(record);
-          console.log(record);
-          now = new Date();
-          // journal.appendChild(now);
-          console.log(now);
-
           numCollection = null;
         } else {
             gameInfoMessage.innerHTML = `У Вас закончились попытки. Правильный ответ ${rightAnswer}`;
             returnElement(refreshBtn);
+            record = document.createElement('p');
+            record.className = 'record';
+            // now = new Date();
+            messageCount += 1;
+            record.innerHTML = `${ messageCount }. Число ${ rightAnswer } не угадано после ${ tryCount } попыток.<br /> ${ timeMessage }`;
+            journal.appendChild(record);
+            disableBtns(numCollection);
             numCollection = null;
           }
         }

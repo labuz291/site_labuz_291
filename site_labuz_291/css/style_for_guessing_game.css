@@ -76,7 +76,6 @@ body {
     font-size: 1.3rem;
     font-weight: 500;
     text-shadow: #f6dda6e9 4px 0 30px;
-    background: rgba(211, 185, 156, 0.1);
 }
 
 .gueess_box .start_box .start_button {
@@ -102,13 +101,15 @@ body {
 }
 
 .gueess_box .start_box .start_button:hover {
-    color: #3b3938;
-    background-color:	#eeb58c;
-    box-shadow: 2px 2px 20px 2px rgba(119, 77, 38, 0.1),
-                -5px -5px 10px rgba(167, 154, 97, 0.1),
-                inset 2px 2px 20px 2px rgba(151, 85, 41, 0.1),
-                inset -5px -5px 10px rgba(143, 121, 62, 0.1);
-    border-color: #3b3938;
+    color: #f3ead9;
+    background: rgba(72, 56, 180, 0.9);
+    box-shadow: 1px 2px 20px 1px rgba(0, 0, 0, 0.05),
+                -5px -5px 10px rgba(200, 180, 150, 0.05),
+                5px 5px 10px rgba(200, 180, 150, 0.05),
+                inset 5px 10px 20px 5px rgba(68, 69, 148, 0.05),
+                inset -7px -7px 12px rgba(163, 138, 100, 0.05),
+                inset 5px 5px 12px rgba(182, 161, 131, 0.05);
+    border-style: none;
     font-weight: 550;
     cursor: url(../icons/ukazatel_9epc32.png), pointer;
     transition: 0.15s;
@@ -121,13 +122,16 @@ body {
     font-family: "Jazz LET", sans-serif;
     width: 10rem;
     height: 3.5rem;
-    border-radius: 14px;
-    box-shadow: 2px 2px 10px 2px rgba(165, 98, 54, 0.15),
-                -3px -3px 10px rgba(82, 51, 26, 0.15),
-                3px 3px 10px rgba(255,255,255,0.05);
-    font-size: 1.4rem;
+    border-radius: 12px;
+    box-shadow: 2px 2px 20px 2px rgba(165, 98, 54, 0.05),
+                -5px -5px 10px rgba(82, 51, 26, 0.05),
+                5px 5px 10px rgba(255,255,255,0.05),
+                inset 1px 2px 20px 1px rgba(0, 0, 0, 0.05),
+                inset -5px -5px 10px rgba(70,70,70,0.05),
+                inset 5px 5px 10px rgba(255,255,255,0.05);
+    font-size: 1.3em;
     font-weight: 550;
-    border: 3.5px solid #4b423e;
+    border-style: none;
     margin: auto;
     padding: auto;
     text-shadow: #c07d3d7a 4px 0 45px;
@@ -141,7 +145,7 @@ body {
                 -5px -5px 10px rgba(167, 154, 97, 0.2),
                 inset 2px 2px 20px 2px rgba(151, 85, 41, 0.2),
                 inset -5px -5px 10px rgba(143, 121, 62, 0.2);
-    border: 3.5px solid #3b3938;
+    border: 4px solid #3b3938;;
     font-weight: 550;
     cursor: url(../icons/ukazatel_9epc32.png), pointer;
     transition: 0.1s;
@@ -329,12 +333,12 @@ body {
     font-weight: 500;
     font-family: "Comic Sans MS", sans-serif;
     color: #363232;
-    background-color: rgb(178, 171, 222);
+    background-color: rgb(191, 186, 226);
 }
 
 .common_block .general_block .guessing_number {
     color: #3b3938;
-    background-color: #fae7c6;
+    background-color: #f5ddb3;
     font-family: "Jazz LET", sans-serif;
     width: 8rem;
     height: 2rem;
@@ -346,7 +350,7 @@ body {
                 inset -5px -5px 10px rgba(70,70,70,0.1),
                 inset 5px 5px 10px rgba(255,255,255,0.1);
     font-size: 1.6rem;
-    border: 3.5px solid #3b3938;
+    border: 4px solid #3b3938;
     margin: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -377,13 +381,13 @@ body {
 }
 
 .common_block .general_block .guessing_number:hover {
-    background-color: #f3e9d5;
-    box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.1),
-                -5px -5px 10px rgba(70,70,70,0.1),
-                5px 5px 10px rgba(255,255,255,0.1),
-                inset 2px 2px 20px 2px rgba(0, 0, 0, 0.1),
-                inset -5px -5px 10px rgba(70,70,70,0.1),
-                inset 5px 5px 10px rgba(255,255,255,0.1);
+    background-color: #fae7c6;
+    box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.05),
+                -5px -5px 10px rgba(70,70,70,0.05),
+                5px 5px 10px rgba(255,255,255,0.05),
+                inset 2px 2px 10px 2px rgba(138, 133, 60, 0.1),
+                inset -5px -5px 10px rgba(141, 93, 61, 0.1),
+                inset 5px 5px 10px rgba(96, 64, 146, 0.1);
 }
 
 .common_block .general_block .info_message {
@@ -472,18 +476,22 @@ body {
 }
 
 .common_block .general_block .num_and_ans_box .refresh_btn_div .refresh_btn img {
+    display: grid;
     border-radius: 50%;
     width: 3.5rem;
     height: 3.5rem;
     transition: 0.2s;
-    filter: grayscale(40%);
+    filter: grayscale(38%);
+    border: 5px solid #f3ead9;
 }
 
 .common_block .general_block .num_and_ans_box .refresh_btn_div .refresh_btn img:hover {
     transition: 0.15s;
     transform: scale(1.2);
-    filter: grayscale(20%);
+    filter: grayscale(28%);
     cursor: url(../icons/ukazatel_9epc32.png), pointer;
+    border-color: #f7af6f;
+    font-size: 1.8rem;;
 }
 
 .common_block .general_block .game_statistics_div {
